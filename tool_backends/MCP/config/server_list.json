@@ -1,0 +1,9 @@
+[
+    "server/BASE-TOOL-Server/base_tool_server.py",
+    "server/AMap-Server/amap_server.py",
+    "http://localhost:8002/sse",
+    "http://localhost:8001/sse",
+    "http://localhost:8004/sse",
+    "http://localhost:8005/sse",
+    "server/Google_Map_server/googlemap_server.py"
+]

@@ -1,0 +1,33 @@
+[project]
+name = "serper-mcp-server"
+dynamic = ["version"]
+description = "A MCP server for Serper"
+keywords = ["serper", "mcp", "server", "google", "search"]
+authors = [
+    { name="Gary Meng", email="guozao.m@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp>=3.11.16",
+    "certifi>=2025.1.31",
+    "mcp[cli]>=1.6.0",
+    "pydantic>=2.11.2",
+    "python-dotenv>=1.1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/garymengcom/serper-mcp-server"
+"Bug Tracker" = "https://github.com/garymengcom/serper-mcp-server/issues"
+"Author Blog" = "https://garymeng.com"
+
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "no-local-version"
+
+[project.scripts]
+serper-mcp-server = "serper_mcp_server:main"

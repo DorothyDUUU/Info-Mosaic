@@ -1,0 +1,5 @@
+{
+    "material_agent": ["build_structure", "optimize_crystal_structure"],
+    "admin_agent": ["*"]
+  }
+  

@@ -1,0 +1,100 @@
+2025-10-08 15:49:11,538 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+[10/08/25 15:49:11] INFO     YouTube Toolbox MCP Server     new_new_server.py:58
+                             준비 중...                                         
+                    INFO     file_cache is only supported with    __init__.py:49
+                             oauth2client<4.0.0                                 
+2025-10-08 15:49:11,561 - __main__ - INFO - 正在启动 YouTube MCP SSE 服务器...
+                    INFO     正在启动 YouTube MCP SSE 服务器... run_server.py:68
+2025-10-08 15:49:11,562 - __main__ - INFO - ✅ YOUTUBE_API_KEY 已设置
+                    INFO     ✅ YOUTUBE_API_KEY 已设置          run_server.py:26
+2025-10-08 15:49:11,562 - __main__ - INFO - 正在检查 YouTube API 连接...
+                    INFO     正在检查 YouTube API 连接...       run_server.py:35
+2025-10-08 15:49:15,348 - __main__ - INFO - ✅ YouTube API 连接成功
+[10/08/25 15:49:15] INFO     ✅ YouTube API 连接成功            run_server.py:39
+2025-10-08 15:49:15,349 - __main__ - INFO - 启动 SSE 服务器在端口 8005...
+                    INFO     启动 SSE 服务器在端口 8005...      run_server.py:90
+INFO:     Started server process [201]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8005 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56914 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
+[10/08/25 15:53:45] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:58232 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
+[10/08/25 15:55:31] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:55718 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
+[10/08/25 15:57:35] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:48568 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
+[10/08/25 16:03:41] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60764 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
+[10/08/25 16:09:19] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:54500 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
+[10/08/25 16:11:35] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60308 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
+[10/08/25 16:13:24] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:38808 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
+[10/08/25 16:16:01] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:37936 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
+[10/08/25 16:17:14] INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:624
+                             ListToolsRequest                                   
