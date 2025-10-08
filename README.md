@@ -60,7 +60,7 @@ For an easier setup, use our pre-built Docker image:
 
 ```bash
 # Load the Docker image
-cd /data/yaxindu/InfoMosaic/tool_backends
+cd tool_backends
 chmod +x run_docker.sh
 
 # Run the Docker container
@@ -75,7 +75,7 @@ docker exec -it backend_server /bin/bash
 ```bash
 # Clone the repository
 git clone <repository-url> # If applicable
-cd /data/yaxindu/InfoMosaic
+cd InfoMosaic
 
 # Install dependencies
 pip install -r requirements.txt  # Create this file based on project needs
@@ -88,7 +88,6 @@ pip install -r requirements.txt  # Create this file based on project needs
 First, prepare the dataset by combining the HuggingFace benchmark data with ground truth answers:
 
 ```bash
-cd /data/yaxindu/InfoMosaic
 python data/prepare_data.py
 ```
 
@@ -118,7 +117,7 @@ To enable the full functionality with tool use:
 
 1. Start the SSE servers:
    ```bash
-   cd /data/yaxindu/InfoMosaic/tool_backends
+   cd tool_backends
    bash MCP/deploy_sse_servers.sh
    ```
 

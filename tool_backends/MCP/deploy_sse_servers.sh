@@ -53,8 +53,10 @@ if [ -f "/.dockerenv" ]; then
     echo "检测到在Docker容器内运行，使用/mnt路径..."
     BASE_PATH="/mnt"
 else
-    echo "在宿主机上运行，使用原始路径..."
-    BASE_PATH="/data/yaxindu/InfoMosaic/tool_backends"
+    echo "在宿主机上运行，使用脚本所在目录的相对路径..."
+    # 使用脚本所在目录的相对路径
+    SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    BASE_PATH="$SCRIPT_DIR/../.."
 fi
 
 # 停止所有服务的函数

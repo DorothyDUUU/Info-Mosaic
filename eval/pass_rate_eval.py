@@ -199,7 +199,11 @@ def score(data_path:str):
 
 
 if __name__ == '__main__':
+    import argparse
     
-    json_path = '/data/yaxindu/ToolArena/AI-Researcher-dev/evaluation/output/answer_generation/multi_domain/critic_master_slave_env2/naive_forward_testcase.jsonl'
-
-    score(json_path)
+    parser = argparse.ArgumentParser(description='Evaluate pass rate of model outputs')
+    parser.add_argument('--json_path', type=str, required=True,
+                        help='Path to the JSONL file containing test cases')
+    args = parser.parse_args()
+    
+    score(args.json_path)
