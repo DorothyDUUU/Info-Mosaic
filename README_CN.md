@@ -2,6 +2,12 @@
 
 <div align="center">
   <img src="assets/infomosaic.png" alt="InfoMosaic Logo" />
+  
+  <div style="background-color: #f0f8ff; padding: 15px; border-radius: 10px; margin: 20px 0; border: 2px solid #87cefa;">
+    <h3>🚀 一站式自动化 Agent 评测与工具部署框架</h3>
+    <p><strong>一个命令即可完成全部环境配置与工具部署，支持多模态、多源信息检索与评估</strong></p>
+  </div>
+  
   <p><em>高级信息检索与评估框架</em></p>
 </div>
 

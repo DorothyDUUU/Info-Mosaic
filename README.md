@@ -1,9 +1,12 @@
 <div align="center">
   <img src="assets/infomosaic.png" alt="InfoMosaic Logo" />
-  <p><em>An Advanced Framework for Information Retrieval and Evaluation</em></p>
+  
+  <div style="background-color: #f0f8ff; padding: 15px; border-radius: 10px; margin: 20px 0; border: 2px solid #87cefa;">
+    <h3>🚀 One-Stop Automated Agent Evaluation & Tool Deployment Framework</h3>
+    <p><strong>Complete all environment configurations and tool deployments with a single command, supporting multimodal, multi-source information retrieval and evaluation</strong></p>
+  </div>
 </div>
 
-# InfoMosaic
 
 <div align="center">
   <a href="https://arxiv.org/pdf/2510.02271" target="_blank"><img src="https://img.shields.io/badge/arXiv-2510.02271-b31b1b.svg" alt="arXiv"/></a>
@@ -14,7 +17,7 @@
 
 <div align="center">
   <img src="assets/overview.png" alt="InfoMosaic Overview" width="80%" />
-  <p><em>InfoMosaic System Overview</em></p>
+  <p><em>InfoMosaic-Bench Overview</em></p>
 </div>
 
 ## 📚 Project Overview
@@ -135,7 +138,7 @@ This script will:
 
 ## 🔄 Data Synthesis Pipeline: InfoMosaic Flow (comming soon)
 
-![InfoMosaic Flow](figures/infomosaic_flow.png)
+![InfoMosaic Flow](assets/infomosaic_flow.png)
 
 
 ## 📚 Citation
@@ -175,8 +178,15 @@ Contributions to improve InfoMosaic are welcome! Please refer to the project's G
 
 We would like to express our gratitude to the following open-source projects that have inspired and supported the development of InfoMosaic:
 
-- [Browse-Master](https://github.com/sjtu-sai-agents/Browse-Master): Official implementation of Browse-Master, a tool-augmented web-search agent.
-- [mcp_sandbox](https://github.com/sjtu-sai-agents/mcp_sandbox): Official sandbox of Browse-Master
+- [Browse-Master](https://github.com/sjtu-sai-agents/Browse-Master)
+- [mcp_sandbox](https://github.com/sjtu-sai-agents/mcp_sandbox)
+- [amap-mcp-server](https://github.com/sugarforever/amap-mcp-server)
+- [biomcp](https://github.com/genomoncology/biomcp/tree/main)
+- [fmp-mcp-server](https://github.com/cdtait/fmp-mcp-server)
+- [googlemap-mcp](https://github.com/hidariutiwa/googlemap-mcp/tree/master)
+- [serper-mcp-server](https://github.com/garylab/serper-mcp-server/)
+- [mcp-youtube](https://github.com/sparfenyuk/mcp-youtube)
+
 
 ## 📝 License
 
