@@ -15,7 +15,7 @@ base_url = os.getenv("OPENAI_API_BASE_URL")
 api_key = os.getenv("OPENAI_API_KEY")
 
 
-serper_api_key = "768ccc7aff19e8d4bd416a2c961b2fbe8f7a8ead"
+serper_api_key = os.getenv("SERPER_API_KEY")
 
 def serper_google_search(query, serper_api_key, top_k, region, lang, depth=0):
     url = "https://google.serper.dev/search"

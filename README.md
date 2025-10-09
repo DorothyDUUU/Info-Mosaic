@@ -111,6 +111,9 @@ This script will:
 Run the inference script to evaluate a model on the benchmark:
 
 ```bash
+export OPENAI_API_BASE_URL="https://api.openai.com/v1"
+export OPENAI_API_KEY="sk-..."
+export SERPER_API_KEY="your_serper_api_key"
 python infer_answer.py --model_name <model-name> --parallel_size <num-threads>
 ```
 
@@ -137,6 +140,7 @@ This script will:
 4. Generate detailed evaluation metrics
 
 ## 🔄 Data Synthesis Pipeline: InfoMosaic Flow (comming soon)
+Looking forward to the release of InfoMosaic Flow!
 
 ![InfoMosaic Flow](assets/infomosaic_flow.png)
 
