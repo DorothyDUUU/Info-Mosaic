@@ -17786,3 +17786,660 @@ Traceback (most recent call last):
 requests.exceptions.SSLError: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube&search_query=Smartsheet+Q%26A+site%3Ayoutube.com&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
 2025-10-08 15:36:56,569 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
 2025-10-08 15:49:11,538 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 02:26:13,442 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 02:30:27,466 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 04:41:09,241 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 05:46:03,286 - new_new_server - ERROR - Error getting transcript for video QtIlD6uxwwk: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 364, in _fetch_captions_json
+    return self._extract_captions_json(innertube_data, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 385, in _extract_captions_json
+    self._assert_playability(innertube_data.get("playabilityStatus"), video_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 404, in _assert_playability
+    raise RequestBlocked(video_id)
+youtube_transcript_api._errors.RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=QtIlD6uxwwk! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.
+
+There are two things you can do to work around this:
+1. Use proxies to hide your IP address, as explained in the "Working around IP bans" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).
+2. (NOT RECOMMENDED) If you authenticate your requests using cookies, you will be able to continue doing requests for a while. However, YouTube will eventually permanently ban the account that you have used to authenticate with! So only do this if you don't mind your account being banned!
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 363, in _fetch_captions_json
+    innertube_data = self._fetch_innertube_data(video_id, api_key)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 446, in _fetch_innertube_data
+    response = self._http_client.post(
+        INNERTUBE_API_URL.format(api_key=api_key),
+    ...<3 lines>...
+        },
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-10-09 05:46:04,181 - new_new_server - ERROR - Error in get_video_transcript tool: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 364, in _fetch_captions_json
+    return self._extract_captions_json(innertube_data, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 385, in _extract_captions_json
+    self._assert_playability(innertube_data.get("playabilityStatus"), video_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 404, in _assert_playability
+    raise RequestBlocked(video_id)
+youtube_transcript_api._errors.RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=QtIlD6uxwwk! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.
+
+There are two things you can do to work around this:
+1. Use proxies to hide your IP address, as explained in the "Working around IP bans" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).
+2. (NOT RECOMMENDED) If you authenticate your requests using cookies, you will be able to continue doing requests for a while. However, YouTube will eventually permanently ban the account that you have used to authenticate with! So only do this if you don't mind your account being banned!
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 1106, in get_video_transcript
+    transcript_data = await youtube_service.get_video_transcript(video_id, language)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 376, in get_video_transcript
+    return await self._run_blocking(_fetch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 225, in _run_blocking
+    return await loop.run_in_executor(self._executor, p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 363, in _fetch_captions_json
+    innertube_data = self._fetch_innertube_data(video_id, api_key)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 446, in _fetch_innertube_data
+    response = self._http_client.post(
+        INNERTUBE_API_URL.format(api_key=api_key),
+    ...<3 lines>...
+        },
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-10-09 06:24:24,550 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 06:59:27,614 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 07:03:29,387 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 07:09:27,360 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 07:09:53,488 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+2025-10-09 07:17:06,459 - new_new_server - ERROR - Error in get_video_comments: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 1062, in get_video_comments
+    comments_data = await youtube_service.get_video_comments(video_id, max_results)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 339, in get_video_comments
+    full_resp = await self._serpapi_get(new_params)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 267, in _serpapi_get
+    return await self._run_blocking(_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 225, in _run_blocking
+    return await loop.run_in_executor(self._executor, p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 265, in _call
+    return gs.get_dict()
+           ~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 103, in get_dict
+    return self.get_dictionary()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 96, in get_dictionary
+    return dict(self.get_json())
+                ~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 83, in get_json
+    return json.loads(self.get_results())
+                      ~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 70, in get_results
+    return self.get_response(path).text
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 59, in get_response
+    response = requests.get(url, parameter, timeout=self.timeout)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+2025-10-09 07:17:25,589 - new_new_server - ERROR - Error getting transcript for video QtIlD6uxwwk: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+urllib3.exceptions.ResponseError: too many 429 error responses
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  [Previous line repeated 4 more times]
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 932, in urlopen
+    retries = retries.increment(method, url, response=response, _pool=self)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 361, in _fetch_captions_json
+    html = self._fetch_video_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 433, in _fetch_video_html
+    html = self._fetch_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 442, in _fetch_html
+    response = self._http_client.get(WATCH_URL.format(video_id=video_id))
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 724, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+        req,
+    ...<6 lines>...
+        **adapter_kwargs,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 691, in send
+    raise RetryError(e, request=request)
+requests.exceptions.RetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+2025-10-09 07:17:26,218 - new_new_server - ERROR - Error processing transcript for video QtIlD6uxwwk: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+urllib3.exceptions.ResponseError: too many 429 error responses
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  [Previous line repeated 4 more times]
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 932, in urlopen
+    retries = retries.increment(method, url, response=response, _pool=self)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 488, in get_video_enhanced_transcript
+    raw_transcript_data = await self.get_video_transcript(video_id, language)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 376, in get_video_transcript
+    return await self._run_blocking(_fetch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 225, in _run_blocking
+    return await loop.run_in_executor(self._executor, p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 361, in _fetch_captions_json
+    html = self._fetch_video_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 433, in _fetch_video_html
+    html = self._fetch_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 442, in _fetch_html
+    response = self._http_client.get(WATCH_URL.format(video_id=video_id))
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 724, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+        req,
+    ...<6 lines>...
+        **adapter_kwargs,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 691, in send
+    raise RetryError(e, request=request)
+requests.exceptions.RetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))

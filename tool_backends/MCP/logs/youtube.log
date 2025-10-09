@@ -1,100 +1,1586 @@
-2025-10-08 15:49:11,538 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
-[10/08/25 15:49:11] INFO     YouTube Toolbox MCP Server     new_new_server.py:58
+2025-10-09 07:09:53,488 - new_new_server - INFO - YouTube Toolbox MCP Server 준비 중...
+[10/09/25 07:09:53] INFO     YouTube Toolbox MCP Server     new_new_server.py:58
                              준비 중...                                         
                     INFO     file_cache is only supported with    __init__.py:49
                              oauth2client<4.0.0                                 
-2025-10-08 15:49:11,561 - __main__ - INFO - 正在启动 YouTube MCP SSE 服务器...
+2025-10-09 07:09:53,507 - __main__ - INFO - 正在启动 YouTube MCP SSE 服务器...
                     INFO     正在启动 YouTube MCP SSE 服务器... run_server.py:68
-2025-10-08 15:49:11,562 - __main__ - INFO - ✅ YOUTUBE_API_KEY 已设置
+2025-10-09 07:09:53,508 - __main__ - INFO - ✅ YOUTUBE_API_KEY 已设置
                     INFO     ✅ YOUTUBE_API_KEY 已设置          run_server.py:26
-2025-10-08 15:49:11,562 - __main__ - INFO - 正在检查 YouTube API 连接...
+2025-10-09 07:09:53,509 - __main__ - INFO - 正在检查 YouTube API 连接...
                     INFO     正在检查 YouTube API 连接...       run_server.py:35
-2025-10-08 15:49:15,348 - __main__ - INFO - ✅ YouTube API 连接成功
-[10/08/25 15:49:15] INFO     ✅ YouTube API 连接成功            run_server.py:39
-2025-10-08 15:49:15,349 - __main__ - INFO - 启动 SSE 服务器在端口 8005...
+2025-10-09 07:09:54,832 - __main__ - INFO - ✅ YouTube API 连接成功
+[10/09/25 07:09:54] INFO     ✅ YouTube API 连接成功            run_server.py:39
+2025-10-09 07:09:54,833 - __main__ - INFO - 启动 SSE 服务器在端口 8005...
                     INFO     启动 SSE 服务器在端口 8005...      run_server.py:90
-INFO:     Started server process [201]
+INFO:     Started server process [501]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8005 (Press CTRL+C to quit)
-INFO:     127.0.0.1:56914 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
-[10/08/25 15:53:45] INFO     Processing request of type            server.py:624
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0INFO:     127.0.0.1:60154 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60158 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60158 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60158 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:10:25] INFO     Processing request of type            server.py:624
                              ListToolsRequest                                   
-INFO:     127.0.0.1:56922 - "POST /messages/?session_id=566d1a2e59a14e0fa398f94a4c528dcd HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60158 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
                              ListToolsRequest                                   
-INFO:     127.0.0.1:58232 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
-[10/08/25 15:55:31] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:58246 - "POST /messages/?session_id=95317d0748d64f798ee5c26900c1a566 HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54764 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:13:33] INFO     Processing request of type            server.py:624
+                             CallToolRequest                                    
+INFO:     127.0.0.1:54764 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:55718 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
-[10/08/25 15:57:35] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:55720 - "POST /messages/?session_id=9176f7974a244fbbb41976d0e550ed49 HTTP/1.1" 202 Accepted
+                             CallToolRequest                                    
+INFO:     127.0.0.1:39392 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:16:41] INFO     Processing request of type            server.py:624
+                             CallToolRequest                                    
+INFO:     127.0.0.1:39392 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:16:46] INFO     Processing request of type            server.py:624
+                             CallToolRequest                                    
+INFO:     127.0.0.1:39392 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:48568 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
-[10/08/25 16:03:41] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:48576 - "POST /messages/?session_id=3f44f15825584d58bae379636365e0c5 HTTP/1.1" 202 Accepted
+                             CallToolRequest                                    
+INFO:     127.0.0.1:39392 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:60764 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
-[10/08/25 16:09:19] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:60770 - "POST /messages/?session_id=5922159bb9484a6097a9cc51795c5c67 HTTP/1.1" 202 Accepted
+                             CallToolRequest                                    
+2025-10-09 07:17:06,459 - new_new_server - ERROR - Error in get_video_comments: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 1062, in get_video_comments
+    comments_data = await youtube_service.get_video_comments(video_id, max_results)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 339, in get_video_comments
+    full_resp = await self._serpapi_get(new_params)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 267, in _serpapi_get
+    return await self._run_blocking(_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 225, in _run_blocking
+    return await loop.run_in_executor(self._executor, p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 265, in _call
+    return gs.get_dict()
+           ~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 103, in get_dict
+    return self.get_dictionary()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 96, in get_dictionary
+    return dict(self.get_json())
+                ~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 83, in get_json
+    return json.loads(self.get_results())
+                      ~~~~~~~~~~~~~~~~^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 70, in get_results
+    return self.get_response(path).text
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/serpapi/serp_api_client.py", line 59, in get_response
+    response = requests.get(url, parameter, timeout=self.timeout)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='serpapi.com', port=443): Max retries exceeded with url: /search?engine=youtube_video&v=QtIlD6uxwwk&api_key=4fb5ff7d0b7e37c4b0bb149c46447f08da5d7f7d3a0012b25adb2ec3b83a0f34&output=json&source=python&next_page_token=Eg0SC1F0SWxENnV4d3drGAYyVSIuIgtRdElsRDZ1eHd3azAAeAKqAhpVZ3lEWjAwV0ctZV85aEhHVjJsNEFhQUJBZzABQiFlbmdhZ2VtZW50LXBhbmVsLWNvbW1lbnRzLXNlY3Rpb24%253D (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))
+[10/09/25 07:17:06] ERROR    Error in get_video_comments: new_new_server.py:1080
+                             HTTPSConnectionPool(host='se                       
+                             rpapi.com', port=443): Max                         
+                             retries exceeded with url:                         
+                             /search?engine=youtube_video                       
+                             &v=QtIlD6uxwwk&api_key=4fb5f                       
+                             f7d0b7e37c4b0bb149c46447f08d                       
+                             a5d7f7d3a0012b25adb2ec3b83a0                       
+                             f34&output=json&source=pytho                       
+                             n&next_page_token=Eg0SC1F0SW                       
+                             xENnV4d3drGAYyVSIuIgtRdElsRD                       
+                             Z1eHd3azAAeAKqAhpVZ3lEWjAwV0                       
+                             ctZV85aEhHVjJsNEFhQUJBZzABQi                       
+                             FlbmdhZ2VtZW50LXBhbmVsLWNvbW                       
+                             1lbnRzLXNlY3Rpb24%253D                             
+                             (Caused by                                         
+                             SSLError(SSLEOFError(8,                            
+                             '[SSL:                                             
+                             UNEXPECTED_EOF_WHILE_READING                       
+                             ] EOF occurred in violation                        
+                             of protocol                                        
+                             (_ssl.c:1028)')))                                  
+                             SSLError: [SSL:                                    
+                             UNEXPECTED_EOF_WHILE_READING                       
+                             ] EOF occurred in violation                        
+                             of protocol (_ssl.c:1028)                          
+                                                                                
+                             The above exception was the                        
+                             direct cause of the                                
+                             following exception:                               
+                                                                                
+                             ╭─ Traceback (most recent ─╮                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/adapters.py:667   │                       
+                             │ in send                  │                       
+                             │                          │                       
+                             │   664 │   │   │   timeou │                       
+                             │   665 │   │              │                       
+                             │   666 │   │   try:       │                       
+                             │ ❱ 667 │   │   │   resp = │                       
+                             │   668 │   │   │   │   me │                       
+                             │   669 │   │   │   │   ur │                       
+                             │   670 │   │   │   │   bo │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/ur │                       
+                             │ llib3/connectionpool.py: │                       
+                             │ 841 in urlopen           │                       
+                             │                          │                       
+                             │    838 │   │   │   elif  │                       
+                             │    839 │   │   │   │   n │                       
+                             │    840 │   │   │         │                       
+                             │ ❱  841 │   │   │   retri │                       
+                             │    842 │   │   │   │   m │                       
+                             │    843 │   │   │   )     │                       
+                             │    844 │   │   │   retri │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/ur │                       
+                             │ llib3/util/retry.py:519  │                       
+                             │ in increment             │                       
+                             │                          │                       
+                             │   516 │   │              │                       
+                             │   517 │   │   if new_ret │                       
+                             │   518 │   │   │   reason │                       
+                             │ ❱ 519 │   │   │   raise  │                       
+                             │       ignore[arg-type]   │                       
+                             │   520 │   │              │                       
+                             │   521 │   │   log.debug( │                       
+                             │   522                    │                       
+                             ╰──────────────────────────╯                       
+                             MaxRetryError:                                     
+                             HTTPSConnectionPool(host='se                       
+                             rpapi.com', port=443): Max                         
+                             retries exceeded with url:                         
+                             /search?engine=youtube_video                       
+                             &v=QtIlD6uxwwk&api_key=4fb5f                       
+                             f7d0b7e37c4b0bb149c46447f08d                       
+                             a5d7f7d3a0012b25adb2ec3b83a0                       
+                             f34&output=json&source=pytho                       
+                             n&next_page_token=Eg0SC1F0SW                       
+                             xENnV4d3drGAYyVSIuIgtRdElsRD                       
+                             Z1eHd3azAAeAKqAhpVZ3lEWjAwV0                       
+                             ctZV85aEhHVjJsNEFhQUJBZzABQi                       
+                             FlbmdhZ2VtZW50LXBhbmVsLWNvbW                       
+                             1lbnRzLXNlY3Rpb24%253D                             
+                             (Caused by                                         
+                             SSLError(SSLEOFError(8,                            
+                             '[SSL:                                             
+                             UNEXPECTED_EOF_WHILE_READING                       
+                             ] EOF occurred in violation                        
+                             of protocol                                        
+                             (_ssl.c:1028)')))                                  
+                                                                                
+                             During handling of the above                       
+                             exception, another exception                       
+                             occurred:                                          
+                                                                                
+                             ╭─ Traceback (most recent ─╮                       
+                             │ /mnt/MCP/sse_server/Yout │                       
+                             │ ube-Server/new_new_serve │                       
+                             │ r.py:1062 in             │                       
+                             │ get_video_comments       │                       
+                             │                          │                       
+                             │   1059 │   │   Dict[str, │                       
+                             │   1060 │   """           │                       
+                             │   1061 │   try:          │                       
+                             │ ❱ 1062 │   │   comments_ │                       
+                             │   1063 │   │             │                       
+                             │   1064 │   │   # Format  │                       
+                             │   1065 │   │   formatted │                       
+                             │                          │                       
+                             │ /mnt/MCP/sse_server/Yout │                       
+                             │ ube-Server/new_new_serve │                       
+                             │ r.py:339 in              │                       
+                             │ get_video_comments       │                       
+                             │                          │                       
+                             │    336 │   │   if top_to │                       
+                             │    337 │   │   │   new_p │                       
+                             │    338 │   │             │                       
+                             │ ❱  339 │   │   full_resp │                       
+                             │    340 │   │   return fu │                       
+                             │    341 │                 │                       
+                             │    342 │   async def get │                       
+                             │        -> List[Dict[str, │                       
+                             │                          │                       
+                             │ /mnt/MCP/sse_server/Yout │                       
+                             │ ube-Server/new_new_serve │                       
+                             │ r.py:267 in _serpapi_get │                       
+                             │                          │                       
+                             │    264 │   │   │   gs =  │                       
+                             │    265 │   │   │   retur │                       
+                             │    266 │   │             │                       
+                             │ ❱  267 │   │   return aw │                       
+                             │    268 │   async def sea │                       
+                             │        Dict[str, Any]:   │                       
+                             │    269 │   │   """       │                       
+                             │    270 │   │   Search fo │                       
+                             │                          │                       
+                             │ /mnt/MCP/sse_server/Yout │                       
+                             │ ube-Server/new_new_serve │                       
+                             │ r.py:225 in              │                       
+                             │ _run_blocking            │                       
+                             │                          │                       
+                             │    222 │   │   """Run a  │                       
+                             │    223 │   │   loop = as │                       
+                             │    224 │   │   p = parti │                       
+                             │ ❱  225 │   │   return aw │                       
+                             │    226 │                 │                       
+                             │    227 │   def parse_url │                       
+                             │    228 │   │   """       │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/concurrent/futur │                       
+                             │ es/thread.py:59 in run   │                       
+                             │                          │                       
+                             │    56 │   │   │   return │                       
+                             │    57 │   │              │                       
+                             │    58 │   │   try:       │                       
+                             │ ❱  59 │   │   │   result │                       
+                             │    60 │   │   except Bas │                       
+                             │    61 │   │   │   self.f │                       
+                             │    62 │   │   │   # Brea │                       
+                             │                          │                       
+                             │ /mnt/MCP/sse_server/Yout │                       
+                             │ ube-Server/new_new_serve │                       
+                             │ r.py:265 in _call        │                       
+                             │                          │                       
+                             │    262 │   │   """       │                       
+                             │    263 │   │   def _call │                       
+                             │    264 │   │   │   gs =  │                       
+                             │ ❱  265 │   │   │   retur │                       
+                             │    266 │   │             │                       
+                             │    267 │   │   return aw │                       
+                             │    268 │   async def sea │                       
+                             │        Dict[str, Any]:   │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/se │                       
+                             │ rpapi/serp_api_client.py │                       
+                             │ :103 in get_dict         │                       
+                             │                          │                       
+                             │   100 │   │   │   Dict w │                       
+                             │   101 │   │   │   (alias │                       
+                             │   102 │   │   """        │                       
+                             │ ❱ 103 │   │   return sel │                       
+                             │   104 │                  │                       
+                             │   105 │   def get_object │                       
+                             │   106 │   │   """Returns │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/se │                       
+                             │ rpapi/serp_api_client.py │                       
+                             │ :96 in get_dictionary    │                       
+                             │                          │                       
+                             │    93 │   │   """Returns │                       
+                             │    94 │   │   │   Dict w │                       
+                             │    95 │   │   """        │                       
+                             │ ❱  96 │   │   return dic │                       
+                             │    97 │                  │                       
+                             │    98 │   def get_dict(s │                       
+                             │    99 │   │   """Returns │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/se │                       
+                             │ rpapi/serp_api_client.py │                       
+                             │ :83 in get_json          │                       
+                             │                          │                       
+                             │    80 │   │   │   Format │                       
+                             │    81 │   │   """        │                       
+                             │    82 │   │   self.param │                       
+                             │ ❱  83 │   │   return jso │                       
+                             │    84 │                  │                       
+                             │    85 │   def get_raw_js │                       
+                             │    86 │   │   """Returns │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/se │                       
+                             │ rpapi/serp_api_client.py │                       
+                             │ :70 in get_results       │                       
+                             │                          │                       
+                             │    67 │   │   """Returns │                       
+                             │    68 │   │   │   Respon │                       
+                             │    69 │   │   """        │                       
+                             │ ❱  70 │   │   return sel │                       
+                             │    71 │                  │                       
+                             │    72 │   def get_html(s │                       
+                             │    73 │   │   """Returns │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/se │                       
+                             │ rpapi/serp_api_client.py │                       
+                             │ :59 in get_response      │                       
+                             │                          │                       
+                             │    56 │   │   try:       │                       
+                             │    57 │   │   │   url, p │                       
+                             │    58 │   │   │   # prin │                       
+                             │ ❱  59 │   │   │   respon │                       
+                             │    60 │   │   │   return │                       
+                             │    61 │   │   except req │                       
+                             │    62 │   │   │   print( │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/api.py:73 in get  │                       
+                             │                          │                       
+                             │    70 │   :rtype: reques │                       
+                             │    71 │   """            │                       
+                             │    72 │                  │                       
+                             │ ❱  73 │   return request │                       
+                             │    74                    │                       
+                             │    75                    │                       
+                             │    76 def options(url, * │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/api.py:59 in      │                       
+                             │ request                  │                       
+                             │                          │                       
+                             │    56 │   # avoid leavin │                       
+                             │    57 │   # cases, and l │                       
+                             │    58 │   with sessions. │                       
+                             │ ❱  59 │   │   return ses │                       
+                             │    60                    │                       
+                             │    61                    │                       
+                             │    62 def get(url, param │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/sessions.py:589   │                       
+                             │ in request               │                       
+                             │                          │                       
+                             │   586 │   │   │   "allow │                       
+                             │   587 │   │   }          │                       
+                             │   588 │   │   send_kwarg │                       
+                             │ ❱ 589 │   │   resp = sel │                       
+                             │   590 │   │              │                       
+                             │   591 │   │   return res │                       
+                             │   592                    │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/sessions.py:703   │                       
+                             │ in send                  │                       
+                             │                          │                       
+                             │   700 │   │   start = pr │                       
+                             │   701 │   │              │                       
+                             │   702 │   │   # Send the │                       
+                             │ ❱ 703 │   │   r = adapte │                       
+                             │   704 │   │              │                       
+                             │   705 │   │   # Total el │                       
+                             │   706 │   │   elapsed =  │                       
+                             │                          │                       
+                             │ /root/miniconda3/lib/pyt │                       
+                             │ hon3.13/site-packages/re │                       
+                             │ quests/adapters.py:698   │                       
+                             │ in send                  │                       
+                             │                          │                       
+                             │   695 │   │   │          │                       
+                             │   696 │   │   │   if isi │                       
+                             │   697 │   │   │   │   #  │                       
+                             │ ❱ 698 │   │   │   │   ra │                       
+                             │   699 │   │   │          │                       
+                             │   700 │   │   │   raise  │                       
+                             │   701                    │                       
+                             ╰──────────────────────────╯                       
+                             SSLError:                                          
+                             HTTPSConnectionPool(host='se                       
+                             rpapi.com', port=443): Max                         
+                             retries exceeded with url:                         
+                             /search?engine=youtube_video                       
+                             &v=QtIlD6uxwwk&api_key=4fb5f                       
+                             f7d0b7e37c4b0bb149c46447f08d                       
+                             a5d7f7d3a0012b25adb2ec3b83a0                       
+                             f34&output=json&source=pytho                       
+                             n&next_page_token=Eg0SC1F0SW                       
+                             xENnV4d3drGAYyVSIuIgtRdElsRD                       
+                             Z1eHd3azAAeAKqAhpVZ3lEWjAwV0                       
+                             ctZV85aEhHVjJsNEFhQUJBZzABQi                       
+                             FlbmdhZ2VtZW50LXBhbmVsLWNvbW                       
+                             1lbnRzLXNlY3Rpb24%253D                             
+                             (Caused by                                         
+                             SSLError(SSLEOFError(8,                            
+                             '[SSL:                                             
+                             UNEXPECTED_EOF_WHILE_READING                       
+                             ] EOF occurred in violation                        
+                             of protocol                                        
+                             (_ssl.c:1028)')))                                  
+INFO:     127.0.0.1:41076 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:54500 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
-[10/08/25 16:11:35] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:54502 - "POST /messages/?session_id=d80c4ce8b43341c1acfd6210f532b153 HTTP/1.1" 202 Accepted
+                             CallToolRequest                                    
+INFO:     127.0.0.1:41076 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:17:10] INFO     Processing request of type            server.py:624
+                             CallToolRequest                                    
+INFO:     127.0.0.1:41076 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
+[10/09/25 07:17:11] INFO     Processing request of type            server.py:624
+                             CallToolRequest                                    
+INFO:     127.0.0.1:41076 - "POST /messages/?session_id=28873aaa924344e18557d43ec3198f09 HTTP/1.1" 202 Accepted
                     INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:60308 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
-[10/08/25 16:13:24] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:60324 - "POST /messages/?session_id=9f371a69a2bd4fd28e2e6625874ac887 HTTP/1.1" 202 Accepted
-                    INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:38808 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
-[10/08/25 16:16:01] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:38820 - "POST /messages/?session_id=24962fef9ca140e8ad40573db74b2490 HTTP/1.1" 202 Accepted
-                    INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:37936 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
-[10/08/25 16:17:14] INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
-INFO:     127.0.0.1:37950 - "POST /messages/?session_id=8c07fbf327214d0bacef86a5ae115d71 HTTP/1.1" 202 Accepted
-                    INFO     Processing request of type            server.py:624
-                             ListToolsRequest                                   
+                             CallToolRequest                                    
+[10/09/25 07:17:23] WARNING  Retrying (Retry(total=7,      connectionpool.py:868
+                             connect=None, read=None,                           
+                             redirect=None, status=None))                       
+                             after connection broken by                         
+                             'SSLEOFError(8, '[SSL:                             
+                             UNEXPECTED_EOF_WHILE_READING]                      
+                             EOF occurred in violation of                       
+                             protocol (_ssl.c:1028)')':                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD                                
+2025-10-09 07:17:25,589 - new_new_server - ERROR - Error getting transcript for video QtIlD6uxwwk: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+urllib3.exceptions.ResponseError: too many 429 error responses
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  [Previous line repeated 4 more times]
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 932, in urlopen
+    retries = retries.increment(method, url, response=response, _pool=self)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 361, in _fetch_captions_json
+    html = self._fetch_video_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 433, in _fetch_video_html
+    html = self._fetch_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 442, in _fetch_html
+    response = self._http_client.get(WATCH_URL.format(video_id=video_id))
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 724, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+        req,
+    ...<6 lines>...
+        **adapter_kwargs,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 691, in send
+    raise RetryError(e, request=request)
+requests.exceptions.RetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+[10/09/25 07:17:25] ERROR    Error getting transcript for  new_new_server.py:372
+                             video QtIlD6uxwwk:                                 
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             
+                             ResponseError: too many 429                        
+                             error responses                                    
+                                                                                
+                             The above exception was the                        
+                             direct cause of the following                      
+                             exception:                                         
+                                                                                
+                             ╭─ Traceback (most recent c─╮                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/adapters.py:667 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   664 │   │   │   timeout │                      
+                             │   665 │   │               │                      
+                             │   666 │   │   try:        │                      
+                             │ ❱ 667 │   │   │   resp =  │                      
+                             │   668 │   │   │   │   met │                      
+                             │   669 │   │   │   │   url │                      
+                             │   670 │   │   │   │   bod │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:871 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    868 │   │   │   log.wa │                      
+                             │    869 │   │   │   │   "R │                      
+                             │    870 │   │   │   )      │                      
+                             │ ❱  871 │   │   │   return │                      
+                             │    872 │   │   │   │   me │                      
+                             │    873 │   │   │   │   ur │                      
+                             │    874 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:932 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    929 │   │   has_retry_ │                      
+                             │    930 │   │   if retries │                      
+                             │    931 │   │   │   try:   │                      
+                             │ ❱  932 │   │   │   │   re │                      
+                             │    933 │   │   │   except │                      
+                             │    934 │   │   │   │   if │                      
+                             │    935 │   │   │   │   │  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/util/retry.py:519 in  │                      
+                             │ increment                 │                      
+                             │                           │                      
+                             │   516 │   │               │                      
+                             │   517 │   │   if new_retr │                      
+                             │   518 │   │   │   reason  │                      
+                             │ ❱ 519 │   │   │   raise M │                      
+                             │       ignore[arg-type]    │                      
+                             │   520 │   │               │                      
+                             │   521 │   │   log.debug(" │                      
+                             │   522                     │                      
+                             ╰───────────────────────────╯                      
+                             MaxRetryError:                                     
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             
+                                                                                
+                             During handling of the above                       
+                             exception, another exception                       
+                             occurred:                                          
+                                                                                
+                             ╭─ Traceback (most recent c─╮                      
+                             │ /mnt/MCP/sse_server/Youtu │                      
+                             │ be-Server/new_new_server. │                      
+                             │ py:352 in _fetch          │                      
+                             │                           │                      
+                             │    349 │   │   def _fetch │                      
+                             │    350 │   │   │   try:   │                      
+                             │    351 │   │   │   │   if │                      
+                             │ ❱  352 │   │   │   │   │  │                      
+                             │    353 │   │   │   │   │  │                      
+                             │    354 │   │   │   │   │  │                      
+                             │    355 │   │   │   │   │  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_api.p │                      
+                             │ y:127 in list             │                      
+                             │                           │                      
+                             │   124 │   │   :param vide │                      
+                             │   125 │   │   │   Make su │                      
+                             │   126 │   │   """         │                      
+                             │ ❱ 127 │   │   return self │                      
+                             │   128                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:356 in fetch    │                      
+                             │                           │                      
+                             │   353 │   │   return Tran │                      
+                             │   354 │   │   │   self._h │                      
+                             │   355 │   │   │   video_i │                      
+                             │ ❱ 356 │   │   │   self._f │                      
+                             │   357 │   │   )           │                      
+                             │   358 │                   │                      
+                             │   359 │   def _fetch_capt │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:372 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   369 │   │   │   │   els │                      
+                             │   370 │   │   │   )       │                      
+                             │   371 │   │   │   if try_ │                      
+                             │ ❱ 372 │   │   │   │   ret │                      
+                             │   373 │   │   │   raise e │                      
+                             │   374 │                   │                      
+                             │   375 │   def _extract_in │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:372 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   369 │   │   │   │   els │                      
+                             │   370 │   │   │   )       │                      
+                             │   371 │   │   │   if try_ │                      
+                             │ ❱ 372 │   │   │   │   ret │                      
+                             │   373 │   │   │   raise e │                      
+                             │   374 │                   │                      
+                             │   375 │   def _extract_in │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:361 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   358 │                   │                      
+                             │   359 │   def _fetch_capt │                      
+                             │   360 │   │   try:        │                      
+                             │ ❱ 361 │   │   │   html =  │                      
+                             │   362 │   │   │   api_key │                      
+                             │   363 │   │   │   innertu │                      
+                             │   364 │   │   │   return  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:433 in          │                      
+                             │ _fetch_video_html         │                      
+                             │                           │                      
+                             │   430 │   │   )           │                      
+                             │   431 │                   │                      
+                             │   432 │   def _fetch_vide │                      
+                             │ ❱ 433 │   │   html = self │                      
+                             │   434 │   │   if 'action= │                      
+                             │   435 │   │   │   self._c │                      
+                             │   436 │   │   │   html =  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:442 in          │                      
+                             │ _fetch_html               │                      
+                             │                           │                      
+                             │   439 │   │   return html │                      
+                             │   440 │                   │                      
+                             │   441 │   def _fetch_html │                      
+                             │ ❱ 442 │   │   response =  │                      
+                             │   443 │   │   return unes │                      
+                             │   444 │                   │                      
+                             │   445 │   def _fetch_inne │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:602 in   │                      
+                             │ get                       │                      
+                             │                           │                      
+                             │   599 │   │   """         │                      
+                             │   600 │   │               │                      
+                             │   601 │   │   kwargs.setd │                      
+                             │ ❱ 602 │   │   return self │                      
+                             │   603 │                   │                      
+                             │   604 │   def options(sel │                      
+                             │   605 │   │   r"""Sends a │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:589 in   │                      
+                             │ request                   │                      
+                             │                           │                      
+                             │   586 │   │   │   "allow_ │                      
+                             │   587 │   │   }           │                      
+                             │   588 │   │   send_kwargs │                      
+                             │ ❱ 589 │   │   resp = self │                      
+                             │   590 │   │               │                      
+                             │   591 │   │   return resp │                      
+                             │   592                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:724 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   721 │   │   if allow_re │                      
+                             │   722 │   │   │   # Redir │                      
+                             │   723 │   │   │   gen = s │                      
+                             │ ❱ 724 │   │   │   history │                      
+                             │   725 │   │   else:       │                      
+                             │   726 │   │   │   history │                      
+                             │   727                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:265 in   │                      
+                             │ resolve_redirects         │                      
+                             │                           │                      
+                             │   262 │   │   │   if yiel │                      
+                             │   263 │   │   │   │   yie │                      
+                             │   264 │   │   │   else:   │                      
+                             │ ❱ 265 │   │   │   │   res │                      
+                             │   266 │   │   │   │   │   │                      
+                             │   267 │   │   │   │   │   │                      
+                             │   268 │   │   │   │   │   │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:703 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   700 │   │   start = pre │                      
+                             │   701 │   │               │                      
+                             │   702 │   │   # Send the  │                      
+                             │ ❱ 703 │   │   r = adapter │                      
+                             │   704 │   │               │                      
+                             │   705 │   │   # Total ela │                      
+                             │   706 │   │   elapsed = p │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/adapters.py:691 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   688 │   │   │   │   │   │                      
+                             │   689 │   │   │           │                      
+                             │   690 │   │   │   if isin │                      
+                             │ ❱ 691 │   │   │   │   rai │                      
+                             │   692 │   │   │           │                      
+                             │   693 │   │   │   if isin │                      
+                             │   694 │   │   │   │   rai │                      
+                             ╰───────────────────────────╯                      
+                             RetryError:                                        
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             
+2025-10-09 07:17:26,218 - new_new_server - ERROR - Error processing transcript for video QtIlD6uxwwk: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+urllib3.exceptions.ResponseError: too many 429 error responses
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  [Previous line repeated 4 more times]
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/connectionpool.py", line 932, in urlopen
+    retries = retries.increment(method, url, response=response, _pool=self)
+  File "/root/miniconda3/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 488, in get_video_enhanced_transcript
+    raw_transcript_data = await self.get_video_transcript(video_id, language)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 376, in get_video_transcript
+    return await self._run_blocking(_fetch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 225, in _run_blocking
+    return await loop.run_in_executor(self._executor, p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/mnt/MCP/sse_server/Youtube-Server/new_new_server.py", line 352, in _fetch
+    transcript_list = self.ytt_api.list(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_api.py", line 127, in list
+    return self._fetcher.fetch(video_id)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 356, in fetch
+    self._fetch_captions_json(video_id),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 372, in _fetch_captions_json
+    return self._fetch_captions_json(video_id, try_number=try_number + 1)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 361, in _fetch_captions_json
+    html = self._fetch_video_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 433, in _fetch_video_html
+    html = self._fetch_html(video_id)
+  File "/root/miniconda3/lib/python3.13/site-packages/youtube_transcript_api/_transcripts.py", line 442, in _fetch_html
+    response = self._http_client.get(WATCH_URL.format(video_id=video_id))
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 724, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+        req,
+    ...<6 lines>...
+        **adapter_kwargs,
+    )
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/lib/python3.13/site-packages/requests/adapters.py", line 691, in send
+    raise RetryError(e, request=request)
+requests.exceptions.RetryError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.youtube.com/watch%3Fv%3DQtIlD6uxwwk&q=EgQSjbXlGPzCnccGIjDZxxGifyO5ZjBHPKpCGmww3z2FB6ialrm22aQaJIihS7y4684DIJEIhaHSpfQajy0yAnJSWgFD (Caused by ResponseError('too many 429 error responses'))
+[10/09/25 07:17:26] ERROR    Error processing transcript   new_new_server.py:656
+                             for video QtIlD6uxwwk:                             
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             
+                             ResponseError: too many 429                        
+                             error responses                                    
+                                                                                
+                             The above exception was the                        
+                             direct cause of the following                      
+                             exception:                                         
+                                                                                
+                             ╭─ Traceback (most recent c─╮                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/adapters.py:667 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   664 │   │   │   timeout │                      
+                             │   665 │   │               │                      
+                             │   666 │   │   try:        │                      
+                             │ ❱ 667 │   │   │   resp =  │                      
+                             │   668 │   │   │   │   met │                      
+                             │   669 │   │   │   │   url │                      
+                             │   670 │   │   │   │   bod │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:871 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    868 │   │   │   log.wa │                      
+                             │    869 │   │   │   │   "R │                      
+                             │    870 │   │   │   )      │                      
+                             │ ❱  871 │   │   │   return │                      
+                             │    872 │   │   │   │   me │                      
+                             │    873 │   │   │   │   ur │                      
+                             │    874 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:942 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    939 │   │   │   respon │                      
+                             │    940 │   │   │   retrie │                      
+                             │    941 │   │   │   log.de │                      
+                             │ ❱  942 │   │   │   return │                      
+                             │    943 │   │   │   │   me │                      
+                             │    944 │   │   │   │   ur │                      
+                             │    945 │   │   │   │   bo │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/connectionpool.py:932 │                      
+                             │  in urlopen               │                      
+                             │                           │                      
+                             │    929 │   │   has_retry_ │                      
+                             │    930 │   │   if retries │                      
+                             │    931 │   │   │   try:   │                      
+                             │ ❱  932 │   │   │   │   re │                      
+                             │    933 │   │   │   except │                      
+                             │    934 │   │   │   │   if │                      
+                             │    935 │   │   │   │   │  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/urll │                      
+                             │ ib3/util/retry.py:519 in  │                      
+                             │ increment                 │                      
+                             │                           │                      
+                             │   516 │   │               │                      
+                             │   517 │   │   if new_retr │                      
+                             │   518 │   │   │   reason  │                      
+                             │ ❱ 519 │   │   │   raise M │                      
+                             │       ignore[arg-type]    │                      
+                             │   520 │   │               │                      
+                             │   521 │   │   log.debug(" │                      
+                             │   522                     │                      
+                             ╰───────────────────────────╯                      
+                             MaxRetryError:                                     
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             
+                                                                                
+                             During handling of the above                       
+                             exception, another exception                       
+                             occurred:                                          
+                                                                                
+                             ╭─ Traceback (most recent c─╮                      
+                             │ /mnt/MCP/sse_server/Youtu │                      
+                             │ be-Server/new_new_server. │                      
+                             │ py:488 in                 │                      
+                             │ get_video_enhanced_transc │                      
+                             │ ript                      │                      
+                             │                           │                      
+                             │    485 │   │   │   │   │  │                      
+                             │    486 │   │   │   │      │                      
+                             │    487 │   │   │   │   #  │                      
+                             │ ❱  488 │   │   │   │   ra │                      
+                             │        language)          │                      
+                             │    489 │   │   │   │      │                      
+                             │    490 │   │   │   │   #  │                      
+                             │    491 │   │   │   │   if │                      
+                             │        'error' in raw_tra │                      
+                             │                           │                      
+                             │ /mnt/MCP/sse_server/Youtu │                      
+                             │ be-Server/new_new_server. │                      
+                             │ py:376 in                 │                      
+                             │ get_video_transcript      │                      
+                             │                           │                      
+                             │    373 │   │   │   │   ra │                      
+                             │    374 │   │              │                      
+                             │    375 │   │   # run in t │                      
+                             │ ❱  376 │   │   return awa │                      
+                             │    377 │                  │                      
+                             │    378 │                  │                      
+                             │    379 │   async def get_ │                      
+                             │        -> Dict[str, Any]: │                      
+                             │                           │                      
+                             │ /mnt/MCP/sse_server/Youtu │                      
+                             │ be-Server/new_new_server. │                      
+                             │ py:225 in _run_blocking   │                      
+                             │                           │                      
+                             │    222 │   │   """Run a b │                      
+                             │    223 │   │   loop = asy │                      
+                             │    224 │   │   p = partia │                      
+                             │ ❱  225 │   │   return awa │                      
+                             │    226 │                  │                      
+                             │    227 │   def parse_url( │                      
+                             │    228 │   │   """        │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/concurrent/futures │                      
+                             │ /thread.py:59 in run      │                      
+                             │                           │                      
+                             │    56 │   │   │   return  │                      
+                             │    57 │   │               │                      
+                             │    58 │   │   try:        │                      
+                             │ ❱  59 │   │   │   result  │                      
+                             │    60 │   │   except Base │                      
+                             │    61 │   │   │   self.fu │                      
+                             │    62 │   │   │   # Break │                      
+                             │                           │                      
+                             │ /mnt/MCP/sse_server/Youtu │                      
+                             │ be-Server/new_new_server. │                      
+                             │ py:352 in _fetch          │                      
+                             │                           │                      
+                             │    349 │   │   def _fetch │                      
+                             │    350 │   │   │   try:   │                      
+                             │    351 │   │   │   │   if │                      
+                             │ ❱  352 │   │   │   │   │  │                      
+                             │    353 │   │   │   │   │  │                      
+                             │    354 │   │   │   │   │  │                      
+                             │    355 │   │   │   │   │  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_api.p │                      
+                             │ y:127 in list             │                      
+                             │                           │                      
+                             │   124 │   │   :param vide │                      
+                             │   125 │   │   │   Make su │                      
+                             │   126 │   │   """         │                      
+                             │ ❱ 127 │   │   return self │                      
+                             │   128                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:356 in fetch    │                      
+                             │                           │                      
+                             │   353 │   │   return Tran │                      
+                             │   354 │   │   │   self._h │                      
+                             │   355 │   │   │   video_i │                      
+                             │ ❱ 356 │   │   │   self._f │                      
+                             │   357 │   │   )           │                      
+                             │   358 │                   │                      
+                             │   359 │   def _fetch_capt │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:372 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   369 │   │   │   │   els │                      
+                             │   370 │   │   │   )       │                      
+                             │   371 │   │   │   if try_ │                      
+                             │ ❱ 372 │   │   │   │   ret │                      
+                             │   373 │   │   │   raise e │                      
+                             │   374 │                   │                      
+                             │   375 │   def _extract_in │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:372 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   369 │   │   │   │   els │                      
+                             │   370 │   │   │   )       │                      
+                             │   371 │   │   │   if try_ │                      
+                             │ ❱ 372 │   │   │   │   ret │                      
+                             │   373 │   │   │   raise e │                      
+                             │   374 │                   │                      
+                             │   375 │   def _extract_in │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:361 in          │                      
+                             │ _fetch_captions_json      │                      
+                             │                           │                      
+                             │   358 │                   │                      
+                             │   359 │   def _fetch_capt │                      
+                             │   360 │   │   try:        │                      
+                             │ ❱ 361 │   │   │   html =  │                      
+                             │   362 │   │   │   api_key │                      
+                             │   363 │   │   │   innertu │                      
+                             │   364 │   │   │   return  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:433 in          │                      
+                             │ _fetch_video_html         │                      
+                             │                           │                      
+                             │   430 │   │   )           │                      
+                             │   431 │                   │                      
+                             │   432 │   def _fetch_vide │                      
+                             │ ❱ 433 │   │   html = self │                      
+                             │   434 │   │   if 'action= │                      
+                             │   435 │   │   │   self._c │                      
+                             │   436 │   │   │   html =  │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/yout │                      
+                             │ ube_transcript_api/_trans │                      
+                             │ cripts.py:442 in          │                      
+                             │ _fetch_html               │                      
+                             │                           │                      
+                             │   439 │   │   return html │                      
+                             │   440 │                   │                      
+                             │   441 │   def _fetch_html │                      
+                             │ ❱ 442 │   │   response =  │                      
+                             │   443 │   │   return unes │                      
+                             │   444 │                   │                      
+                             │   445 │   def _fetch_inne │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:602 in   │                      
+                             │ get                       │                      
+                             │                           │                      
+                             │   599 │   │   """         │                      
+                             │   600 │   │               │                      
+                             │   601 │   │   kwargs.setd │                      
+                             │ ❱ 602 │   │   return self │                      
+                             │   603 │                   │                      
+                             │   604 │   def options(sel │                      
+                             │   605 │   │   r"""Sends a │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:589 in   │                      
+                             │ request                   │                      
+                             │                           │                      
+                             │   586 │   │   │   "allow_ │                      
+                             │   587 │   │   }           │                      
+                             │   588 │   │   send_kwargs │                      
+                             │ ❱ 589 │   │   resp = self │                      
+                             │   590 │   │               │                      
+                             │   591 │   │   return resp │                      
+                             │   592                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:724 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   721 │   │   if allow_re │                      
+                             │   722 │   │   │   # Redir │                      
+                             │   723 │   │   │   gen = s │                      
+                             │ ❱ 724 │   │   │   history │                      
+                             │   725 │   │   else:       │                      
+                             │   726 │   │   │   history │                      
+                             │   727                     │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:265 in   │                      
+                             │ resolve_redirects         │                      
+                             │                           │                      
+                             │   262 │   │   │   if yiel │                      
+                             │   263 │   │   │   │   yie │                      
+                             │   264 │   │   │   else:   │                      
+                             │ ❱ 265 │   │   │   │   res │                      
+                             │   266 │   │   │   │   │   │                      
+                             │   267 │   │   │   │   │   │                      
+                             │   268 │   │   │   │   │   │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/sessions.py:703 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   700 │   │   start = pre │                      
+                             │   701 │   │               │                      
+                             │   702 │   │   # Send the  │                      
+                             │ ❱ 703 │   │   r = adapter │                      
+                             │   704 │   │               │                      
+                             │   705 │   │   # Total ela │                      
+                             │   706 │   │   elapsed = p │                      
+                             │                           │                      
+                             │ /root/miniconda3/lib/pyth │                      
+                             │ on3.13/site-packages/requ │                      
+                             │ ests/adapters.py:691 in   │                      
+                             │ send                      │                      
+                             │                           │                      
+                             │   688 │   │   │   │   │   │                      
+                             │   689 │   │   │           │                      
+                             │   690 │   │   │   if isin │                      
+                             │ ❱ 691 │   │   │   │   rai │                      
+                             │   692 │   │   │           │                      
+                             │   693 │   │   │   if isin │                      
+                             │   694 │   │   │   │   rai │                      
+                             ╰───────────────────────────╯                      
+                             RetryError:                                        
+                             HTTPSConnectionPool(host='www                      
+                             .google.com', port=443): Max                       
+                             retries exceeded with url:                         
+                             /sorry/index?continue=https:/                      
+                             /www.youtube.com/watch%3Fv%3D                      
+                             QtIlD6uxwwk&q=EgQSjbXlGPzCncc                      
+                             GIjDZxxGifyO5ZjBHPKpCGmww3z2F                      
+                             B6ialrm22aQaJIihS7y4684DIJEIh                      
+                             aHSpfQajy0yAnJSWgFD (Caused                        
+                             by ResponseError('too many                         
+                             429 error responses'))                             

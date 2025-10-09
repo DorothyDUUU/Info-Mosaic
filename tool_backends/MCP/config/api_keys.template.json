@@ -1,0 +1,11 @@
+{
+  "FdaApiKey": "your_fda_api_key",
+  "FmpApiKey": "your_fmp_api_key",
+  "SerperApiKey": "your_serper_api_key",
+  "YoutubeApiKey": "your_youtube_api_key",
+  "SerpapiKey": "your_serpapi_key",
+  "OpenaiApiKey": "your_openai_api_key",
+  "BaseUrl": "your_base_url",
+  "GoogleMapsApiKey": "your_google_maps_api_key",
+  "AmapMapsApiKey": "your_amaps_api_key"
+}

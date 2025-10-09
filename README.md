@@ -1,11 +1,16 @@
-
-
-# InfoMosaic
-
 <div align="center">
   <img src="assets/infomosaic.png" alt="InfoMosaic Logo" />
   <p><em>An Advanced Framework for Information Retrieval and Evaluation</em></p>
 </div>
+
+# InfoMosaic
+
+<div align="center">
+  <a href="https://arxiv.org/pdf/2510.02271" target="_blank"><img src="https://img.shields.io/badge/arXiv-2510.02271-b31b1b.svg" alt="arXiv"/></a>
+  <a href="https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench" target="_blank"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-blue.svg" alt="Dataset on Hugging Face"/></a>
+  <a href="README_CN.md" target="_blank"><img src="https://img.shields.io/badge/中文版本-README_CN-red.svg" alt="Chinese README"/></a>
+</div>
+
 
 <div align="center">
   <img src="assets/overview.png" alt="InfoMosaic Overview" width="80%" />
@@ -22,20 +27,22 @@ The framework enables:
 - Flexible tool usage for enhanced information acquisition
 - Parallel processing for efficient benchmarking
 
+## 📊 Evaluation Results
+
+Comparison of 14 LLM agents equipped with a web search tool on **InfoMosaic-Bench**, evaluated across six domains and the overall average. Metrics include Accuracy (**Acc**) and Pass Rate. The best overall Accuracy and Pass Rate is highlighted in bold.
+
+<div align="center">
+  <img src="assets/evaluation.png" alt="Evaluation Results" width="90%" />
+  <p><em>InfoMosaic-Bench Evaluation Results</em></p>
+</div>
+
 ## 📁 Project Structure
 
 ```
 InfoMosaic/
 ├── data/                   # Data preparation and management
-│   ├── info_mosaic_gt_answer.jsonl  # Ground truth answers
-│   ├── info_mosaic_w_gt.jsonl       # Combined query and ground truth data
-│   └── prepare_data.py              # Script to prepare and combine datasets
 ├── eval/                   # Evaluation utilities
-│   └── pass_rate_eval.py            # Evaluation script for calculating pass rates
 ├── inference/              # Inference components
-│   ├── __init__.py
-│   ├── gpt5_multi_tool.py           # Multi-tool integration
-│   └── tool_manager.py              # Tool management
 ├── tool_backends/          # Backend services for tools
 │   ├── MCP/                     # Multi-Content Protocol tools
 │   ├── api_proxy/               # API proxies
@@ -54,34 +61,33 @@ InfoMosaic/
 - Python 3.8+ or Docker
 - API keys for external services (serper, google_map, youtube, serapi)
 
-### Docker Deployment
-
-For an easier setup, use our pre-built Docker image:
-
-```bash
-# Load the Docker image
-cd tool_backends
-chmod +x run_docker.sh
-
-# Run the Docker container
-./run_docker.sh backend_server backend_server_image:v1
-
-# Enter the container
-docker exec -it backend_server /bin/bash
-```
-
-### Manual Setup
-
+### Installation
 ```bash
 # Clone the repository
-git clone <repository-url> # If applicable
+git clone git@github.com:DorothyDUUU/Info-Mosaic.git # If applicable
 cd InfoMosaic
 
 # Install dependencies
-pip install -r requirements.txt  # Create this file based on project needs
+pip install . 
 ```
 
-## 🚀 Usage
+### 🔑 API Key Configuration
+
+For detailed instructions on API key configuration, please refer to the following README [API Key and Configuration Management Guide](tool_backends/MCP/README_API_KEYS_EN.md)
+
+This document provides comprehensive information about configuring API keys for all external services used in InfoMosaic, including web search, maps, and other tools.
+
+### Starting Tool Backends
+
+This is by far the simplest automated tool deployment repository! InfoMosaic Tool Backend Services launches MCP server based on Python sandbox, providing an extremely simple one-click deployment solution.
+
+To enable the full functionality of the tools, please refer to the detailed deployment guide:
+
+- [Tool Backend Deployment Guide](tool_backends/README.md)
+
+This document provides complete deployment steps, including Docker deployment, quick deployment scripts, service management, and testing tools. All services can be configured and started with just one command.
+
+## 🚀 Inference & Evaluation
 
 ### Data Preparation
 
@@ -95,6 +101,7 @@ This script will:
 1. Download the [InfoMosaic_Bench dataset](https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench) from HuggingFace
 2. Load the ground truth answers from `data/info_mosaic_gt_answer.jsonl`
 3. Combine the datasets and save to `data/info_mosaic_w_gt.jsonl`
+
 
 ### Running Inference
 
@@ -111,43 +118,8 @@ python infer_answer.py --model_name <model-name> --parallel_size <num-threads>
 - `--api_key`: API key for accessing the model
 - `--temperature`: Temperature setting for generation
 
-### Starting Tool Backends
 
-To enable the full functionality with tool use:
-
-1. Start the SSE servers:
-   ```bash
-   cd tool_backends
-   bash MCP/deploy_sse_servers.sh
-   ```
-
-2. Start the API proxy:
-   ```bash
-   cd api_proxy
-   python api_server.py
-   ```
-
-3. Start the MCP server:
-   ```bash
-   cd ../MCP
-   sh deploy_server.sh
-   ```
-
-## 🔑 API Key Configuration
-
-To use the web search and other external services, configure your API keys in the `tool_backends/configs/web_agent.json` file:
-
-```json
-{
-    "serper_api_key": "your_serper_api_key",
-    "search_region": "us",
-    "search_lang": "en",
-    "USE_MODEL": "gpt-4o",
-    "BASE_MODEL": "qwen-32b"
-}
-```
-
-## 📊 Evaluation
+### 📊 Evaluation
 
 Evaluate the model's performance using the pass rate evaluation script:
 
@@ -161,14 +133,19 @@ This script will:
 3. Calculate pass rates for sub-questions and final answers
 4. Generate detailed evaluation metrics
 
+## 🔄 Data Synthesis Pipeline: InfoMosaic Flow (comming soon)
+
+![InfoMosaic Flow](figures/infomosaic_flow.png)
+
+
 ## 📚 Citation
 
 If you use this framework or dataset in your research, please cite our paper:
 
 ```
-@article{InfoMosaic2025,
-  title={InfoMosaic: A Multimodal, Multi-Source Benchmark for Information Integration and Reasoning},
-  author={Du, Dorothy and et al.},
+@article{du2025infomosaic,
+  title={InfoMosaic-Bench: Evaluating Multi-Source Information Seeking in Tool-Augmented Agents},
+  author={Du, Yaxin and Zhang, Yuanshuo and Yang, Xiyuan and Zhou, Yifan and Wang, Cheng and Zou, Gongyi and Pang, Xianghe and Wang, Wenhao and Chen, Menglan and Tang, Shuo and others},
   journal={arXiv preprint arXiv:2510.02271},
   year={2025}
 }
@@ -194,6 +171,13 @@ And the dataset:
 
 Contributions to improve InfoMosaic are welcome! Please refer to the project's GitHub repository (if available) for contribution guidelines.
 
+## 🙏 Acknowledgements
+
+We would like to express our gratitude to the following open-source projects that have inspired and supported the development of InfoMosaic:
+
+- [Browse-Master](https://github.com/sjtu-sai-agents/Browse-Master): Official implementation of Browse-Master, a tool-augmented web-search agent.
+- [mcp_sandbox](https://github.com/sjtu-sai-agents/mcp_sandbox): Official sandbox of Browse-Master
+
 ## 📝 License
 
-[Add license information here]
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0) file for details.

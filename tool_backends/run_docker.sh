@@ -1,10 +1,10 @@
 #!/bin/bash
-# 用法: ./run_container.sh <container_name> <image_name>
-# 示例: ./run_container.sh my_container my_image:latest
+# Usage: ./run_container.sh <container_name> <image_name>
+# Example: ./run_container.sh my_container my_image:latest
 
-# 参数检查
+# Check arguments
 if [ $# -lt 2 ]; then
-  echo "用法: $0 <container_name> <image_name>"
+  echo "Usage: $0 <container_name> <image_name>"
   exit 1
 fi
 
@@ -12,7 +12,7 @@ CONTAINER_NAME=$1
 IMAGE_NAME=$2
 CURRENT_DIR=$(pwd)
 
-# 运行容器
+# Run container
 docker run -d \
   --name "${CONTAINER_NAME}" \
   --cpuset-cpus="0-63" \

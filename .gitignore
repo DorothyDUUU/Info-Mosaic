@@ -6,6 +6,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+tool_backends/MCP/logs/
+# API keys configuration
+# This file contains sensitive information and should not be committed
+tool_backends/MCP/config/api_keys.json
+
+# Data
+*.jsonl
+!data/info_mosaic_gt_answer.jsonl
 
 node_modules
 dist
@@ -31,16 +39,15 @@ venv
 .env.test.local
 .env.production.local
 
-__pycache__
+# ignore Python compiled files
+__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
-# Data
-*.jsonl
-!data/info_mosaic_gt_answer.jsonl
-
 # Nested git repositories
 tool_backends/MCP/sse_server/fmp-mcp-server/
+
 
 # Temporary files
 *.tmp

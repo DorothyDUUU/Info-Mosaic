@@ -3,24 +3,24 @@ import json
 
 def test_tool(method, params=None):
     """
-    测试Web搜索和解析工具
+    Test Web search and parsing tools
     
     Args:
-        method: 工具方法名
-        params: 请求参数（可选）
+        method: Tool method name
+        params: Request parameters (optional)
     """
     if params is None:
         params = {}
         
-    print(f"\n测试工具: {method}")
-    print(f"参数: {params}")
+    print(f"\nTesting tool: {method}")
+    print(f"Parameters: {params}")
     
     try:
         headers = {
             'Content-Type': 'application/json'
         }
         
-        # 构建请求数据
+        # Construct request data
         data = params
         
         url = f"http://localhost:30010/call_tool/{method}"
@@ -29,36 +29,36 @@ def test_tool(method, params=None):
             url,
             headers=headers,
             json=data,
-            timeout=30  # 增加超时时间，因为网页搜索和解析可能需要更长时间
+            timeout=30  # Increased timeout as web search and parsing may take longer
         )
         
         if response.status_code == 200:
             try:
                 result = response.json()
                 if result.get('status') == True:
-                    print("✅ 测试成功")
-                    print(f"响应数据: {json.dumps(result.get('result'), indent=2, ensure_ascii=False)[:1000]}...")
+                    print("✅ Test succeeded")
+                    print(f"Response data: {json.dumps(result.get('result'), indent=2, ensure_ascii=False)[:1000]}...")
                 else:
-                    print(f"⚠️ 请求成功但返回状态为失败: {result.get('result')}")
+                    print(f"⚠️ Request succeeded but returned failure status: {result.get('result')}")
             except json.JSONDecodeError:
-                print(f"⚠️ 响应不是有效的JSON格式: {response.text[:200]}")
+                print(f"⚠️ Response is not valid JSON format: {response.text[:200]}")
         else:
-            print(f"❌ 请求失败: HTTP {response.status_code}")
-            print(f"响应内容: {response.text[:200]}")
+            print(f"❌ Request failed: HTTP {response.status_code}")
+            print(f"Response content: {response.text[:200]}")
             
     except Exception as e:
-        print(f"❌ 测试过程中出现错误: {str(e)}")
+        print(f"❌ Error occurred during testing: {str(e)}")
 
 def main():
-    # 测试用例列表
+    # Test cases list
     test_cases = [
-        # Web搜索测试用例
+        # Web search test cases
         ("web_search", {
             "query": "OpenAI ChatGPT latest news",
-            "top_k": 10  # 添加可选参数
+            "top_k": 10  # Adding optional parameter
         }),
         
-        # Web解析测试用例
+        # Web parsing test cases
         ("web_parse", {
             "link": "https://www.python.org/about/",
             "user_prompt": "What is Python programming language?"
@@ -66,14 +66,14 @@ def main():
 
     ]
     
-    print("开始Web搜索和解析工具测试...")
+    print("Starting Web search and parsing tool tests...")
     print("=" * 50)
     
     for method, params in test_cases:
         test_tool(method, params)
         print("=" * 50)
         
-    print("\n测试完成!")
+    print("\nTests completed!")
 
 if __name__ == "__main__":
     main()

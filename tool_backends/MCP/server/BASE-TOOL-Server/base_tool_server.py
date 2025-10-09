@@ -3,26 +3,26 @@ import requests
 from mcp.server.fastmcp import FastMCP
 import os, sys
 
-# 确定当前工作目录并设置正确的路径
+# Determine current working directory and set correct paths
 def get_base_path():
-    # 检查是否在Docker容器中运行
+    # Check if running in Docker container
     is_docker = os.path.exists('/.dockerenv')
     
     if is_docker:
-        # Docker容器中使用/mnt路径
+        # Use /mnt path in Docker container
         base_dir = '/mnt'
     else:
-        # 宿主机上使用相对路径
+        # Use relative path on host machine
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(current_dir)))  # 指向tool_backends目录
-    
-    # 添加到Python路径确保模块可被导入
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(current_dir)))  # Point to tool_backends directory
+        print(f"base_dir: {base_dir}")
+    # Add to Python path to ensure modules can be imported
     if base_dir not in sys.path:
         sys.path.append(base_dir)
     
     return base_dir
 
-# 获取基础路径
+# Get base path
 base_dir = get_base_path()
 
 logging.basicConfig(
@@ -59,7 +59,14 @@ async def web_search(query: str, top_k: int = 10):
                 - sitelinks: The sitelinks of the web page.
             - relatedSearches: The related searches of the search result.
     """
-    from .web_agent.web_search import google_search
+    # Use absolute import path to avoid relative import issues
+    import sys
+    import os
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    web_agent_dir = os.path.join(current_dir, 'web_agent')
+    if web_agent_dir not in sys.path:
+        sys.path.append(web_agent_dir)
+    from web_search import google_search
 
     result = await google_search(query, top_k)
     return result
@@ -82,7 +89,14 @@ async def web_parse(link: str, user_prompt: str, llm: str = "gpt-4.1-nano-2025-0
             - score: The score of the web page.
     """
 
-    from .web_agent.web_parse import parse_htmlpage
+    # Use absolute import path to avoid relative import issues
+    import sys
+    import os
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    web_agent_dir = os.path.join(current_dir, 'web_agent')
+    if web_agent_dir not in sys.path:
+        sys.path.append(web_agent_dir)
+    from web_parse import parse_htmlpage
 
     response = await parse_htmlpage(link, user_prompt, llm)
     return response

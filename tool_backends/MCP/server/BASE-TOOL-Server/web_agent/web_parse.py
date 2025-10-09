@@ -1,24 +1,60 @@
 import json
 import os
 import sys
+import json
 import asyncio
 import tiktoken
 import warnings
+import aiohttp
 
-current_dir = os.path.dirname(__file__)
-sys.path.append(os.path.join(current_dir, ".."))
-sys.path.append(os.path.join(current_dir))
+# Get the directory of the current file
+current_dir = os.path.abspath(os.path.dirname(__file__))
+# Add current directory to system path
+sys.path.append(current_dir)
+sys.path.append(os.path.dirname(current_dir))
+
+# Get project root directory (pointing to directory containing MCP)
+project_root = '/mnt'
+sys.path.append(project_root)
+from MCP.config_manager import config_manager
+has_config_manager = True
+print("Successfully loaded config manager")
+
+
+# Try to import required modules
 from get_html import fetch_web_content
 from utils.llm_caller import llm_call
 from transformers import AutoTokenizer
 
-with open(
-    os.path.join(current_dir, "..", "..", "..", "..", "configs", "web_agent.json"), "r"
-) as f:
-    tools_config = json.load(f)
+# Load configuration
+tools_config = {}
+if has_config_manager:
+    try:
+        tools_config = config_manager.get_web_agent_config()
+        print(f"Loaded web agent config from config manager")
+    except Exception as e:
+        print(f"Error loading config from config manager: {e}")
+        has_config_manager = False
 
-USE_PROMPT = tools_config["user_prompt"]
-USE_LLM = tools_config["USE_MODEL"]
+if not has_config_manager:
+    # Use default configuration or load from file
+    try:
+        config_path = os.path.join(current_dir, "..", "..", "..", "..", "configs", "web_agent.json")
+        with open(config_path, "r") as f:
+            tools_config = json.load(f)
+        print(f"Loaded config from file: {config_path}")
+    except Exception as e:
+        print(f"Error loading config file: {e}")
+        # Use hardcoded default values
+        tools_config = {
+            "user_prompt": {"search_conclusion": "Please analyze the provided web content..."},
+            "USE_MODEL": "gpt-4o"
+        }
+        print("Using fallback default configuration")
+
+# Set global variables
+USE_PROMPT = tools_config.get("user_prompt", {})
+USE_LLM = tools_config.get("USE_MODEL", "gpt-4o")
 warnings.filterwarnings("ignore")
 
 

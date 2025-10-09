@@ -3,169 +3,165 @@ import json
 
 def test_tool(method, params=None):
     """
-    测试 Google Maps 工具
+    Test Google Maps tools
     
     Args:
-        method: 工具方法名
-        params: 请求参数（可选）
+        method: Tool method name
+        params: Request parameters (optional)
     """
     if params is None:
         params = {}
         
-    print(f"\n测试工具: {method}")
-    print(f"参数: {params}")
+    print(f"\nTesting tool: {method}")
+    print(f"Parameters: {params}")
     
     try:
         headers = {
             'Content-Type': 'application/json'
         }
         
-        # 构建请求数据
-        data = params  # 只发送参数部分
+        # Construct request data
+        data = params  # Send only the parameter part
         
-        # 使用 Google Maps SSE 服务的 URL
-        url = f"http://localhost:30009/call_tool/{method}"
+        # Use Google Maps SSE service URL
+        url = f"http://localhost:30010/call_tool/{method}"
         
         response = requests.post(
             url,
             headers=headers,
             json=data,
-            timeout=30  # Google Maps API 可能需要更长的超时时间
+            timeout=30  # Google Maps API may require longer timeout
         )
         
         if response.status_code == 200:
             try:
                 result = response.json()
                 if result.get('status') == True:
-                    print("✅ 测试成功")
-                    print(f"响应数据: {json.dumps(result.get('result'), indent=2, ensure_ascii=False)[:500]}...")
+                    print("✅ Test succeeded")
+                    print(f"Response data: {json.dumps(result.get('result'), indent=2, ensure_ascii=False)[:500]}...")
+                    return result.get('result')  # Return result for use in workflow tests
                 else:
-                    print(f"⚠️ 请求成功但返回状态为失败: {result.get('result')}")
+                    print(f"⚠️ Request succeeded but returned failure status: {result.get('result')}")
             except json.JSONDecodeError:
-                print(f"⚠️ 响应不是有效的JSON格式: {response.text[:200]}")
+                print(f"⚠️ Response is not valid JSON format: {response.text[:200]}")
         else:
-            print(f"❌ 请求失败: HTTP {response.status_code}")
-            print(f"响应内容: {response.text[:200]}")
+            print(f"❌ Request failed: HTTP {response.status_code}")
+            print(f"Response content: {response.text[:200]}")
             
     except Exception as e:
-        print(f"❌ 测试过程中出现错误: {str(e)}")
+        print(f"❌ Error occurred during testing: {str(e)}")
+    return None
 
 def test_place_details_workflow():
     """
-    测试获取地点详情的完整流程：先搜索地点，再获取详情
+    Test complete workflow for obtaining place details: first search for place, then get details
     """
     print("\n" + "="*60)
-    print("测试地点详情获取流程")
+    print("Testing place details retrieval workflow")
     print("="*60)
     
-    # 第一步：搜索地点获取place_id
-    search_result = test_tool("find_place", {
-        "input": "Starbucks near Times Square New York",
-        "input_type": "textquery"
+    # Step 1: Search for place to get place_id
+    print("1. Using google_map_get_place_id tool to obtain place ID")
+    place_ids_result = test_tool("google_map_get_place_id", {
+        "query": "Starbucks near Times Square New York",
+        "max_results": 1
     })
     
-    # 注意：这里只是演示流程，实际需要解析返回结果获取place_id
-    print("提示：要获取地点详情，需要从find_place的结果中提取place_id")
-    print("然后使用该place_id调用place_details工具")
+    if place_ids_result and isinstance(place_ids_result, list) and len(place_ids_result) > 0:
+        place_id = place_ids_result[0].get("place_id")
+        print(f"Found place_id: {place_id}")
+        
+        # Step 2: Use place_id to get place details
+        print("\n2. Using obtained place_id to call google_map_get_place_details tool")
+        test_tool("google_map_get_place_details", {
+            "query": place_id,
+            "is_accurate_id": True
+        })
+    else:
+        print("Unable to obtain valid place_id, workflow test failed")
+
+    # Test getting place details directly through query
+    print("\n3. Calling google_map_get_place_details tool directly with query term")
+    test_tool("google_map_get_place_details", {
+        "query": "Eiffel Tower, Paris, France",
+        "is_accurate_id": False
+    })
 
 def main():
-    # 测试用例列表
+    # Test cases list - corresponding to tools actually implemented in the server
     test_cases = [
-        # 获取路线规划 - 使用英文地址
-        ("get_directions", {
-            "origin": "Tiananmen Square, Beijing, China",
-            "destination": "Beijing Capital International Airport, China",
-            "mode": "driving"
+        # 1. google_map_get_map_direction - Get route planning
+        ("google_map_get_map_direction", {
+            "start": "Tiananmen Square, Beijing, China",
+            "end": "Beijing Capital International Airport, China",
+            "travel_mode": 0  # 0 = Driving
         }),
         
-        # 步行路线
-        ("get_directions", {
-            "origin": "People's Square, Shanghai, China",
-            "destination": "The Bund, Shanghai, China",
-            "mode": "walking"
+        # Walking route
+        ("google_map_get_map_direction", {
+            "start": "People's Square, Shanghai, China",
+            "end": "The Bund, Shanghai, China",
+            "travel_mode": 2  # 2 = Walking
         }),
         
-        # 公交路线
-        ("get_directions", {
-            "origin": "Times Square, New York, NY",
-            "destination": "JFK Airport, New York, NY",
-            "mode": "transit"
+        # Transit route
+        ("google_map_get_map_direction", {
+            "start": "Times Square, New York, NY",
+            "end": "JFK Airport, New York, NY",
+            "travel_mode": 3  # 3 = Transit
         }),
         
-        # 获取距离和时间
-        ("get_distance", {
-            "origin": "Central Park, New York, NY",
-            "destination": "Brooklyn Bridge, New York, NY",
-            "mode": "driving"
+        # 2. googlemap_search_places - Search places (return formatted text)
+        ("googlemap_search_places", {
+            "query": "Pizza restaurant in New York",
+            "max_results": 5,
+            "structured": False
         }),
         
-        # 步行距离
-        ("get_distance", {
-            "origin": "Eiffel Tower, Paris, France",
-            "destination": "Louvre Museum, Paris, France",
-            "mode": "walking"
+        # Search places (return structured data)
+        ("googlemap_search_places", {
+            "query": "Hotel near Times Square New York",
+            "max_results": 3,
+            "structured": True
         }),
         
-        # 地理编码 - 著名地标
-        ("get_geocode", {
-            "address": "Times Square, New York, NY"
+        # Search landmarks
+        ("googlemap_search_places", {
+            "query": "Tourist attractions in Paris",
+            "max_results": 5,
+            "structured": False
         }),
         
-        # 地理编码 - 地标建筑
-        ("get_geocode", {
-            "address": "Eiffel Tower, Paris, France"
+        # 3. google_map_get_place_id - Get place ID
+        ("google_map_get_place_id", {
+            "query": "Starbucks in San Francisco",
+            "max_results": 3
         }),
         
-        # 查找地点 - 使用英文搜索
-        ("find_place", {
-            "input": "Pizza restaurant in New York",
-            "input_type": "textquery"
+        # Get landmark building's place_id
+        ("google_map_get_place_id", {
+            "query": "Eiffel Tower, Paris",
+            "max_results": 1
         }),
         
-        # 查找酒店
-        ("find_place", {
-            "input": "Hotel near Times Square New York",
-            "input_type": "textquery"
-        }),
-        
-        # 查找附近餐厅 - 使用纽约坐标
-        ("place_nearby", {
-            "location": {
-                "lat": 40.7589,
-                "lng": -73.9851
-            },
-            "radius": 1000,
-            "place_type": "restaurant"
-        }),
-        
-        # 查找附近银行 - 使用巴黎坐标
-        ("place_nearby", {
-            "location": {
-                "lat": 48.8566,
-                "lng": 2.3522
-            },
-            "radius": 500,
-            "place_type": "bank"
-        }),
-        
-        # 注意：place_details 需要有效的 place_id，建议先运行 find_place 获取
-        # ("place_details", {
-        #     "place_id": "需要先通过find_place获取有效的place_id",
-        #     "fields": ["name", "formatted_address", "formatted_phone_number", "website", "rating"]
-        # })
+        # 4. google_map_get_place_details - Get place details through query term
+        ("google_map_get_place_details", {
+            "query": "Empire State Building, New York",
+            "is_accurate_id": False
+        })
     ]
     
-    print("开始 Google Maps 工具测试...")
+    print("Starting Google Maps tool tests...")
     print("=" * 50)
     
     for method, params in test_cases:
         test_tool(method, params)
         print("=" * 50)
     
-    # 测试地点详情获取流程
+    # Test place details retrieval workflow
     test_place_details_workflow()
         
-    print("\n测试完成!")
+    print("\nTests completed!")
 
 if __name__ == "__main__":
     main()
