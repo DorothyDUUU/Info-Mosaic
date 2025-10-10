@@ -138,7 +138,11 @@ def _execute_code_safely(
         )(),
     }
 
-    module.__dict__.update(sandbox_globals)
+    # Update module dictionary with sandbox globals, preserving existing tools
+    # This ensures tool functions injected by session manager are not overwritten
+    for key, value in sandbox_globals.items():
+        if key not in module.__dict__:  # Only add if not already present (preserve tools)
+            module.__dict__[key] = value
 
     error_value = None
     output_value = None
@@ -152,8 +156,17 @@ def _execute_code_safely(
         start_item = form_item("tool_result", "", "start")
         post_item_info(session_id, start_item)
 
-        # Execute the code string within the session module's dictionary
-        exec(code, module.__dict__)
+        cleaned_code = code.replace('\u00a0', ' ').replace('\xa0', ' ')
+        
+        try:
+            compile(cleaned_code, '<string>', 'exec')
+            print("Code compilation successful")
+        except Exception as e:
+            print(f"Code compilation error: {e}")
+            raise
+        
+        # Execute the cleaned code string within the session module's dictionary
+        exec(cleaned_code, module.__dict__)
 
         return capture.get_stdout(), capture.get_stderr()
 

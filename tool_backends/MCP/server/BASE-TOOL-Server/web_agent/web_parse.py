@@ -86,13 +86,19 @@ def split_chunks(text: str, model: str):
 
 
 async def read_html(text, user_prompt, model=None):
-    chunks = split_chunks(text, model)
-    # only select the first chunk
-    chunks = chunks[:1]
-    template = USE_PROMPT["search_conclusion"]
-    final_prompt = template.format(user=user_prompt, info=chunks[0])
-    answer = await llm_call(final_prompt, model)
-    return _get_contents(answer)
+    try:
+        chunks = split_chunks(text, model)
+        # only select the first chunk
+        chunks = chunks[:1]
+        template = USE_PROMPT["search_conclusion"]
+        final_prompt = template.format(user=user_prompt, info=chunks[0])
+        answer = await llm_call(final_prompt, model)
+        if answer is None:
+            return {"content": "LLM returned no response", "urls": [], "score": -1}
+        return _get_contents(answer)
+    except Exception as e:
+        print(f"Error in read_html: {str(e)}")
+        return {"content": f"Error parsing content: {str(e)}", "urls": [], "score": -1}
 
 
 async def parse_htmlpage(url: str, user_prompt: str = "", llm: str = None):
@@ -145,7 +151,7 @@ def _get_contents(response: str):
 async def main():
     query = "Was Chris Wilder a youth player at the club he managed in 2001? Also, when and where did he meet his spouse?"
     url = "https://en.wikipedia.org/wiki/Chris_Wilder"
-    results = await parse_htmlpage(url, query, llm="gpt-4.1-nano-2025-04-14")
+    results = await parse_htmlpage(url, query, llm="gpt-4.1-nano")
     print(results)
 
 

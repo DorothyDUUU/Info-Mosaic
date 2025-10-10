@@ -73,7 +73,7 @@ async def web_search(query: str, top_k: int = 10):
 
 
 @mcp.tool()
-async def web_parse(link: str, user_prompt: str, llm: str = "gpt-4.1-nano-2025-04-14"):
+async def web_parse(link: str, user_prompt: str, llm: str = "gpt-4.1-nano"):
     """
     web_parse is used to parse and analyze web content based on provided links and queries.
 

@@ -14,6 +14,7 @@ CONTAINER_NAME=$1
 # Enter container and execute all deployment steps
 docker exec -it $CONTAINER_NAME /bin/bash -c "
     # Create tmux session
+    cd /mnt/
     tmux new -d -s server
     
     # Create window 1: SSE Servers
@@ -57,4 +58,4 @@ docker exec -it $CONTAINER_NAME /bin/bash -c "
 echo "Deployment script execution completed!"
 
 echo "Tip: Your services have been deployed in different windows of the tmux session inside the Docker container."
-echo "You can use 'docker exec -it $CONTAINER_NAME tmux attach -t server' to reconnect to the session."
+echo "You can use 'docker exec -it $CONTAINER_NAME /bin/bash tmux attach -t server' to reconnect to the session."

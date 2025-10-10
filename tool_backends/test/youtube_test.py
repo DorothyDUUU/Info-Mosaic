@@ -71,7 +71,7 @@ def main():
         
         # Get channel details
         ("get_channel_details", {
-            "channel_id": test_channel_id
+            "channel_name": "Rick Astley"  # Using channel name instead of channel_id
         }),
         
         # Get video comments

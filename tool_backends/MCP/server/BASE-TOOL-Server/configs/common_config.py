@@ -14,6 +14,21 @@ class CommonConfig:
                 "authorization": "EMPTY",
                 "retry_time": 3,
             },
+            "gpt-4.1-nano": {
+                "url": "http://123.129.219.111:3000/v1",
+                "authorization": "EMPTY",
+                "retry_time": 3,
+            },
+            "qwen-32b": {
+                "url": "http://123.129.219.111:3000/v1",
+                "authorization": "EMPTY",
+                "retry_time": 3,
+            },
+            "qwen-72b": {
+                "url": "http://123.129.219.111:3000/v1",
+                "authorization": "EMPTY",
+                "retry_time": 3,
+            },
             "debug_mode": False,
         }
 

@@ -6,10 +6,11 @@ import sys
 # Get the directory of the current file
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Add necessary directories to system path to ensure correct imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))  # Add tool_backends directory
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))), 'api_proxy'))  # Add api_proxy directory
+tool_backends_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+sys.path.append(tool_backends_dir)  # Add tool_backends directory
 
+print(f"Tool backends directory: {tool_backends_dir}")
+print("sys.path:", sys.path)
 try:
     # Try to import fetch_web_api from api_proxy.tool_api
     from api_proxy.tool_api import fetch_web_api

@@ -11,30 +11,7 @@ InfoMosaic Tool Backend Services provides an extremely simple one-click deployme
 
 ## 📚 Project Introduction
 
-InfoMosaic Tool Backend Services are the core components of the InfoMosaic framework, providing support for various tools including web search, map query, document parsing, and more. This directory contains all tool implementations and deployment configurations, supporting quick deployment and usage via Docker.
-
-## 📁 Directory Structure
-
-```
-tool_backends/
-├── MCP/                     # Modular Computing Platform, tool execution platform
-│   ├── config/              # Configuration files directory
-│   ├── server/              # Implementation of various tool services
-│   ├── sse_server/          # SSE server implementation
-│   ├── README_API_KEYS_EN.md # API key configuration guide
-│   ├── README_SANDBOX_EN.md # Sandbox usage guide
-│   ├── deploy_server.sh     # MCP server deployment script
-│   └── deploy_sse_servers.sh # SSE servers deployment script
-├── api_proxy/               # API proxy service
-├── configs/                 # Global configuration files
-│   ├── llm_call.json        # LLM call configuration
-│   ├── mcp_config.json      # MCP configuration
-│   └── web_agent.json       # Web agent configuration
-├── test/                    # Tool test scripts
-├── run_docker.sh            # Docker run script
-├── quick_deploy.sh          # Quick deployment script
-└── README_EN.md             # English documentation
-```
+InfoMosaic Tool Backend Services are the core components of the InfoMosaic framework, providing support for various tools including web search, map query, document parsing, and more. This directory contains all tool implementations and deployment configurations, supporting quick deployment and usage via Docker. The tool sandbox has been tested to handle 500 concurrent requests.
 
 ## 🔑 API Key Configuration
 
@@ -47,7 +24,7 @@ Brief steps:
 2. Edit the `api_keys.json` file and fill in your actual API keys
 3. The configuration will be loaded automatically, no additional settings needed
 
-## 🐳 Docker Deployment
+## 🐳 Docker Deployment (3 step start your tool sandbox)
 
 ### 1. Pull Docker Image
 
@@ -72,6 +49,29 @@ For quick deployment, you can directly use the quick deployment script:
 ```bash
 cd tool_backends/
 bash quick_deploy.sh backend_server
+```
+
+## 📁 Directory Structure
+
+```
+tool_backends/
+├── MCP/                     # Modular Computing Platform, tool execution platform
+│   ├── config/              # Configuration files directory
+│   ├── server/              # Implementation of various tool services
+│   ├── sse_server/          # SSE server implementation
+│   ├── README_API_KEYS_EN.md # API key configuration guide
+│   ├── README_SANDBOX_EN.md # Sandbox usage guide
+│   ├── deploy_server.sh     # MCP server deployment script
+│   └── deploy_sse_servers.sh # SSE servers deployment script
+├── api_proxy/               # API proxy service
+├── configs/                 # Global configuration files
+│   ├── llm_call.json        # LLM call configuration
+│   ├── mcp_config.json      # MCP configuration
+│   └── web_agent.json       # Web agent configuration
+├── test/                    # Tool test scripts
+├── run_docker.sh            # Docker run script
+├── quick_deploy.sh          # Quick deployment script
+└── README_EN.md             # English documentation
 ```
 
 ## 🛠️ Service Management

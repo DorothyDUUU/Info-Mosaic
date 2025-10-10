@@ -60,8 +60,8 @@ def main():
         
         # Web parsing test cases
         ("web_parse", {
-            "link": "https://www.python.org/about/",
-            "user_prompt": "What is Python programming language?"
+            "link": "https://en.wikipedia.org/wiki/Chris_Wilder",
+            "user_prompt": "Was Chris Wilder a youth player at the club he managed in 2001? Also, when and where did he meet his spouse?"
         })
 
     ]

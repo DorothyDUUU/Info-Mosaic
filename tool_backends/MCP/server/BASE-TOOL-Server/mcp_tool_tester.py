@@ -67,7 +67,7 @@ async def test_web_parse():
         logger.info(f"Parsing URL: {url}")
         logger.info(f"User prompt: {user_prompt}")
         
-        result = await parse_htmlpage(url, user_prompt, llm="gpt-4.1-nano-2025-04-14")
+        result = await parse_htmlpage(url, user_prompt, llm="gpt-4.1-nano")
         
         logger.info(f"Parse result type: {type(result)}")
         if result:

@@ -114,7 +114,7 @@ class ConfigManager:
                         "authorization": openai_key,
                         "retry_time": 3
                     },
-                    "gpt-4.1-nano-2025-04-14": {
+                    "gpt-4.1-nano": {
                         "url": base_url,
                         "authorization": openai_key,
                         "retry_time": 3

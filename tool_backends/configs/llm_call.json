@@ -4,7 +4,7 @@
         "authorization": "",
         "retry_time": 3
     },
-    "gpt-4.1-nano-2025-04-14": {
+    "gpt-4.1-nano": {
         "url": "",
         "authorization": "",
         "retry_time": 3

@@ -2,7 +2,6 @@ import os
 import asyncio
 import requests
 
-from flask import session
 from pydantic import BaseModel
 from typing import Optional, Tuple, Dict, Any
 from mcp_manager import MCPManager
@@ -139,7 +138,7 @@ from tool_caller import call_tool\n"""
     for tool in manager.get_tools():
         schema = tool.get("input_schema")
         arg = ""
-        arg_dict = "    tool_args = {"
+        arg_dict = "    tool_args = {"
         if schema:
             for in_arg in schema.get("properties").keys():
                 default = ""
@@ -159,15 +158,15 @@ from tool_caller import call_tool\n"""
         if (tool["name"] not in agent_tools) and (
             tool["name"] not in browse_comp_tools
         ):
-            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
+            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
 
         # Browse completion tool function definition (requires session_id in args)
         elif tool["name"] in browse_comp_tools:
-            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    tool_args['session_id']=inform_handler.session_id\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
+            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    tool_args['session_id']=inform_handler.session_id\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
 
         # Agent-specific tool function definition (requires stream_id in args)
         else:
-            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    tool_args['stream_id']=inform_handler.session_id\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
+            code += f"def {tool['name']}({arg}):\n{arg_dict}\n    tool_args['stream_id']=inform_handler.session_id\n    inform_handler.post_tool_start('{tool['name']}')\n    result = call_tool('{tool['name']}', tool_args, inform_handler.session_id)\n    inform_handler.post_tool_result('{tool['name']}', result)\n    return result\n"
     return initial + code
 
 
@@ -298,12 +297,11 @@ class SessionManager:
             self.sessions[session_id] = RuntimeModule.from_string(
                 f"session_{session_id}", "", ""
             )
-            # (Initialize the runtime module's session-managed variables and functions,
-            #  and set up the async queue for receiving current code stream returns)
-            self.sessions[session_id].__dict__.update(
-                {"inform_handler": SessionInformHandler(session_id=session_id)}
-            )
-
+            
+            # First add the inform_handler to the session
+            self.sessions[session_id].__dict__["inform_handler"] = SessionInformHandler(session_id=session_id)
+            
+            # Then execute the tool functions code to inject them into the session
             exec(code_string, self.sessions[session_id].__dict__)
 
         return self.sessions[session_id]
