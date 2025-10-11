@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfoMosaic-Bench</title>
 
-    <!-- todo add fav icon for svg version -->
     <link rel="icon" type="image" href="images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -123,48 +122,50 @@
 
         </header>
 
-        <main>
-            <section class="examples-section">
-                <h2>Abstract</h2>
-                <div class="text-block">
-                    <p>Information seeking is a fundamental requirement for humans. However, existing LLM agents rely
-                        heavily on open-web search, which exposes two fundamental weaknesses: online content is noisy
-                        and unreliable, and many real-world tasks require <b>precise, domain-specific knowledge
-                            unavailable from the web</b>. The emergence of the Model Context Protocol (MCP) now allows
-                        agents to interface with thousands of specialized tools, seemingly resolving this limitation.
-                        Yet it remains unclear whether agents can effectively leverage such tools -- and more
-                        importantly, whether they can integrate them with general-purpose search to solve complex tasks.
-                        Therefore, we introduce InfoMosaic-Bench, the first benchmark dedicated to multi-source
-                        information seeking in tool-augmented agents. Covering six representative domains (medicine,
-                        finance, maps, video, web, and multi-domain integration), InfoMosaic-Bench requires agents to
-                        combine general-purpose search with domain-specific tools. Tasks are synthesized with
-                        InfoMosaic-Flow, a scalable pipeline that grounds task conditions in verified tool outputs,
-                        enforces cross-source dependencies, and filters out shortcut cases solvable by trivial lookup.
-                        This design guarantees both reliability and non-triviality. Experiments with 14 state-of-the-art
-                        LLM agents reveal three findings: (i) web information alone is insufficient, with GPT-5
-                        achieving only 38.2% accuracy and 67.5% pass rate; (ii) domain tools provide selective but
-                        inconsistent benefits, improving some domains while degrading others; and (iii) 22.4% of
-                        failures arise from incorrect tool usage or selection, highlighting that current LLMs still
-                        struggle with even basic tool handling.</p>
-                </div>
-            </section>
 
-        </main>
+        <!-- abstract section -->
+        <section class="examples-section">
+            <h2>Abstract</h2>
+            <div class="text-block">
+                <p>Information seeking is a fundamental requirement for humans. However, existing LLM agents rely
+                    heavily on open-web search, which exposes two fundamental weaknesses: online content is noisy
+                    and unreliable, and many real-world tasks require <b>precise, domain-specific knowledge
+                        unavailable from the web</b>. The emergence of the <b>Model Context Protocol (MCP)</b> now
+                    allows
+                    agents to interface with thousands of specialized tools, seemingly resolving this limitation.
+                    Yet it remains unclear whether agents can effectively leverage such tools -- and more
+                    importantly, whether they can integrate them with general-purpose search to solve complex tasks.
+                    Therefore, we introduce <b>InfoMosaic-Bench</b>, the first benchmark dedicated to <b>multi-source
+                        information seeking in tool-augmented agents</b>. Covering <b>6</b> representative domains
+                    (medicine,
+                    finance, maps, video, web, and multi-domain integration), InfoMosaic-Bench requires agents to
+                    combine general-purpose search with domain-specific tools. Tasks are synthesized with
+                    <b>InfoMosaic-Flow</b>, a scalable pipeline that grounds task conditions in verified tool outputs,
+                    enforces cross-source dependencies, and filters out shortcut cases solvable by trivial lookup.
+                    This design guarantees both reliability and non-triviality. Read more about InfoMosaic-Bench and
+                    InfoMosaic-Flow in our <b><a href="https://arxiv.org/pdf/2510.02271">paper</a></b>!
+            </div>
+        </section>
 
+
+        <!-- example section -->
         <section class="examples-section">
             <h2>Examples</h2>
             <div class="examples-grid">
                 <button class="example-btn" data-example="1">
                     <div class="btn-title"><b>Map Domain</b><img src="./images/map.png" width="18%"></div>
-                    <div class="btn-desc"><b>135</b> high-quality queries based on Chinese geographical landmarks, using GoogleMap MCP server and Amap MCP server</div>
+                    <div class="btn-desc"><b>135</b> high-quality queries based on Chinese geographical landmarks, using
+                        GoogleMap MCP server and Amap MCP server</div>
                 </button>
                 <button class="example-btn" data-example="2">
-                    <div class="btn-title"><b>Medical/Biology Domain</b><img src="./images/bio.png" width="18%"></div>
-                    <div class="btn-desc"></div>
+                    <div class="btn-title"><b>Medical/Bio Domain</b><img src="./images/bio.png" width="18%"></div>
+                    <div class="btn-desc"><b>83</b> high-quality queries based on Drug, Gene, rare disease, and NCT ID,
+                        using BioMCP server</div>
                 </button>
                 <button class="example-btn" data-example="3">
                     <div class="btn-title"><b>Video Domain</b><img src="./images/y2b.png" width="18%"></div>
-                    <div class="btn-desc"></div>
+                    <div class="btn-desc"><b>100</b> high-quality queries based on Youtube Videos, using Youtube MCP
+                        servers and Serpapi interface.</div>
                 </button>
                 <button class="example-btn" data-example="4">
                     <div class="btn-title"><b>Web Domain</b><img src="./images/web.png" width="18%"></div>
@@ -181,25 +182,252 @@
             </div>
         </section>
 
+        <!-- features section -->
         <section class="examples-section">
-            <h2>Methodology</h2>
+            <h2>Features</h2>
+            <div class="grid-container">
+
+                <div class="grid-item">
+                    <h3>🎯Benchmark<br><b>InfoMosaic-Bench</b></h3>
+                    <p>A novel benchmark evaluating whether agents can leverage diverse domain-specific
+                        tools for multi-source information seeking.</p>
+                </div>
+
+                <div class="grid-item">
+                    <h3>⚙️Pipeline<br><b>InfoMosaic-Flow</b></h3>
+                    <p>An automated two-stage synthesis pipeline with grounding tasks in
+                        domain-wise tools and refining with verification and filtering.</p>
+                </div>
+
+                <div class="grid-item">
+                    <h3>💡Experiment<br><b>Tool-Selection Lacking</b></h3>
+                    <p> Relying solely on web search is insufficient for precise
+                        reasoning. Current agents fail to robustly use domain-wise tools.</p>
+                </div>
+
+            </div>
+            <div class="text-block">
+
+            </div>
+        </section>
+
+        <!-- methodology section -->
+        <section class="examples-section">
+            <h2>Methodology: <b>InfoMosaic-Flow</b> Synthesis Pipeline</h2>
             <div class="img-container">
                 <img src="images/infomosaic_flow.png" alt="Methodology for Info-Mosaic" width="75%">
             </div>
             <div class="text-block">
                 <p>
                     The synthesis pipeline is laid on an organizerworkers architecture,
-                    where a single organizer acts as the commander, coordinating multiple domain-specific workers. Stage
-                    1:
-                    Information Seeking composing interdependent constraints and grounding them with verified multi-tool
-                    outputs to form initial QA pairs; Stage 2: Iterative Refinement revising drafts, pruning shortcuts,
-                    and
-                    enforcing multi-source reasoning
+                    where a single organizer acts as the commander, coordinating multiple domain-specific workers.
                 </p>
+                <tr>
+                    <li>Stage 1: <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Information
+                            Seeking</span> composing interdependent constraints and grounding them with
+                        verified multi-tool outputs to form initial QA pairs. The synthesizer works by proposing
+                        diverse scenarios, gathering verifiable domain evidence via tool-equipped executors, and
+                        integrating these results into a coherent multi-sourced problem that requires complex,
+                        cross-condition reasoning.</li>
+                    <li>Stage 2: <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Iterative
+                            Refinement</span> revising drafts, pruning shortcuts, and enforcing
+                        multi-source
+                        reasoning. The Refiner drives the verification stage by implementing Condition Decomposing,
+                        Condition Fuzzing to eliminate search shortcuts, and Concluding to ensure the final problem
+                        requires multi-step reasoning, as verified by a
+                        worker limited to web search.</li>
+                    <li><span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Automated checks</span>
+                        (Tool-Call Filtering, AnswerEvidence Consistency, and
+                        Coherence Filtering) and <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">manual revision</span>
+                        by human annotators are conducted to remove ill-formed
+                        tasks and improve factual alignment, coherence, and difficulty.
+                    </li>
+                </tr>
             </div>
         </section>
 
-        
+
+        <!-- dataset and benchmark sections -->
+        <section class="examples-section">
+            <h2>DataSet and Benchmark: <b>InfoMosaic-Bench</b></h2>
+            <div class="container-new">
+
+                <div class="image-column">
+                    <img src="./images/table_1.png" alt="InfoMosaic Bench">
+                </div>
+
+                <div class="text-column">
+                    <h3>Key Statistics for <b>InfoMosaic-Bench</b></h3>
+                    <p> The dataset contains <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">621</span> problems
+                        across <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">5</span> domains
+                        (medicine/biology, finance, maps, video, web), plus an additional
+                        set of explicitly <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">cross-domain
+                            tasks</span>. In
+                        total, InfoMosaic-Bench incorporates <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">77</span> distinct
+                        tools spanning <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">7</span>
+                        servers, combined with condition-level supervision, ensuring that
+                        the benchmark provides a challenging and reliable testbed for evaluating multi-source
+                        information seeking.</p>
+                </div>
+
+            </div>
+            <div class="container-new">
+
+                <div class="image-column">
+                    <img src="./images/data-sources.png" alt="Data Sources">
+                    <img src="./images/gt-demo.png" alt="GT and Testcase Demo">
+                </div>
+
+                <div class="text-column">
+                    <h3>Evaluation Metrics</b></h3>
+                    <p>We report both <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Accuracy</span> and
+                        <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Pass Rate</span>.
+                        Accuracy measuring strict end-to-end task success, reflecting whether
+                        the agent can complete information seeking and reasoning holistically. Pass Rate, in contrast,
+                        evaluates provides a more fine-grained view of agent performance based on
+                        associated <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">test cases</span>
+                        (subquestions with gold answers or subgoal checks).
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- experiment and analysis sections -->
+        <section class="examples-section">
+            <h2>Experimental Analysis: Agent's Performance in Tool Selections</h2>\
+            <h3>Main Results</h3>
+            <div class="img-container"><img src="images/exp.png" alt="Experimental Results" width="70%"></div>
+            <div class="text-block">
+                InfoMosaic-Bench demonstrates that web search alone is insufficient for multi-source reasoning. Our
+                experiments report results for 14 state-of-the-art LLM agents limited to a web-search tool. We observe
+                that current agent system performs poorly on this task. Even the best closed-source model (<b>GPT-5</b>)
+                attains only <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">38.2%</span> accuracy and a
+                <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">67.5%</span> pass rate.
+                Moreover, InfoMosaic-Bench reveals stark differences across domains, especially in video, map, and
+                multidomain.
+            </div>
+
+
+            <h3>Domain Tool Analysis & Scaling Analysis</h3>
+            <div class="img-container"><img src="images/exp_2.png" alt="Experimental Results 2" width="70%"></div>
+            <div class="text-block">
+                <li id="item-1">On average, domain tools yield only marginal gains, indicating that the bottleneck is
+                    not tool availability but <span class="feature-number"
+                        style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">tool use</span>: how agents
+                    <b>plan, select, parameterize, and time</b> their calls.
+                </li>
+                <li id="item-2">Both GPT-5 and GLM-4.5 see clear gains in map and video domains because these tasks
+                    depend on structured, exclusive signals (e.g., spatial queries, video metadata) that web search
+                    cannot reliably provide.</li>
+                <li id="item-3">Accuracy drops on multi-domain tasks with many tools, highlighting cross-source
+                    orchestration issues: selecting and chaining tools raises planning complexity and error propagation.
+                </li>
+            </div>
+
+
+            <h3>Failure Mode Analysis</h3>
+            <div class="img-container"><img src="images/exp_3.png" alt="Experimental Results 2" width="70%"></div>
+            <div class="text-block">
+                We collect
+                and categorize the results of tool calls into four types: <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">usage error</span> (wrong
+                function calling),
+                <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">selection error</span>
+                (wrong tool selections), <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">invalid result</span>
+                (successful but irrelevant/unhelpful calling), and <span class="feature-number"
+                    style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">valid result</span>
+                (successful and useful tool calling).
+                <br><br>
+
+                <li id="item-1">As shown by the line, better tool usage yields more useful information and leads to
+                    stronger model performance.</li>
+                <li id="item-2">Tool usage error rate correlates with tool complexity. Bio and Multidomain with larger
+                    parameter numbers exhibit higher usage-error rates. Finance and Multi-domain host the largest
+                    toolsets and show markedly higher selection error rates, implying larger tool inventories increase
+                    selection risk.</li>
+                <li id="item-3">Most tool results are unhelpful and contribute little to answering the question.</li>
+
+            </div>
+
+            <h3>Synthesis Pipeline Validation</h3>
+            <!-- todo -->
+
+            <!-- <h3>Agent Problem-Solving Analysis</h3> -->
+            <div class="container-new">
+
+                <div class="image-column">
+                    <img src="./images/heapmaps.png" alt="InfoMosaic Bench">
+                </div>
+
+                <div class="text-column">
+                    <h3>Agent Problem-Solving Pattern Analysis</h3>
+                    <p>After analyzing the trajectories of Agents solving dataset problems, we can find that advanced
+                        Agents
+                        with higher evaluation scores can already exhibit clear, structured thought processes and steps,
+                        which are
+                        not prompted by humans. Based on our analysis, GPT-5 demonstrates a specific, sequential
+                        long-range
+                        “Searching-Reasoning-Evaluating trajectory when solving problems in the map domain, which is:
+                        “<span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Broad Search</span> →
+                        <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Targeted Information
+                            Retrieval</span> → <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Solution
+                            Evaluation</span> → <span class="feature-number"
+                            style="color: rgb(0, 153, 255); font-weight: bold; font-size:larger">Response
+                            Calibration</span>”. The clear action trajectory can be obtained by statistically analyzing
+                        the number of tools called by the Agent during different time periods..
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- bibtex -->
+        <section class="examples-section">
+            <h2>Citation</h2>
+            <div class="text-block">
+                <pre>
+  <code>@article{du2025infomosaic,
+    title={InfoMosaic-Bench: Evaluating Multi-Source Information Seeking in Tool-Augmented Agents},
+    author={Du, Yaxin and Zhang, Yuanshuo and Yang, Xiyuan and Zhou, Yifan and Wang, Cheng and Zou, Gongyi and Pang, Xianghe and Wang, Wenhao and Chen, Menglan and Tang, Shuo and others},
+    journal={arXiv preprint arXiv:2510.02271},
+    year={2025}
+    }
+  </code>
+  <code>
+    @dataset{InfoMosaic_Bench,
+    title = {InfoMosaic_Bench},
+    author = {Dorothydu},
+    year = {2025},
+    publisher = {Hugging Face},
+    url = {https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench}
+    }
+  </code>
+</pre>
+            </div>
+        </section>
+
 
         <footer>
             <p>© 2025 Paper Authors. All rights reserved.</p>

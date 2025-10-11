@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Modal elements
     const modal = document.getElementById('exampleModal');
     const closeBtn = document.querySelector('.close-btn');
@@ -11,21 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const examples = {
         1: {
             title: "Map Domain Examples",
-            description: "135 high-quality queries based on Chinese geographical landmarks, using GoogleMap MCP server and Amap MCP server",
+            description: "135 high-quality queries based on Chinese geographical landmarks, using GoogleMap MCP server and Amap MCP server.",
             result: `GT: 大连观光塔`,
             problem: `在大连市中山区，寻找一个符合以下特征的地标： \n1. 在行政区划上属于中山区（区划代码210202）。 \n2. 从青泥洼桥地铁站步行至此约需31分59秒，步行距离约2.40公里。 \n3. 从大连站驾车到此全程约4.22公里，预计用时约12分59秒；而从大连站乘坐地铁5号线至劳动公园站并步行到达的公共交通方案总用时约42分22秒。该地标的名称是？`
         },
         2: {
-            title: "Medical/Biology Domain Examples",
-            description: "This is the second example of your paper. Explain what makes this example important to your research. This example demonstrates performance optimization techniques.",
-            result: `yes`,
-            problem: `1+1>2?`
+            title: "Medical/Bio Domain Examples",
+            description: "83 high-quality queries based on Drug, Gene, rare disease, and NCT ID, using BioMCP server",
+            result: `GT: NCT07180706`,
+            problem: `Which clinical trial meets these criteria? \n1. Uses an FDA De Novo-approved ultrasound device for tumor ablation without needles or heat. \n2. Aims to alleviate symptoms in adults with non-operable abdominal tumors (3-10 cm).\n3. Takes place at a university hospital. \n4. Measures outcomes using SF-36 and VAS scores over six months. \n5. Involves mechanical tissue disruption via focused ultrasound.`
         },
         3: {
-            title: "Example 3",
-            description: "This is the third example of your paper. Describe how this example validates your approach or findings. This example shows the core algorithm in action.",
-            problem: `1+1>2?`,
-            result: `yes`,
+            title: "Video Domain Examples",
+            description: "100 high-quality queries based on Youtube Videos,using Youtube MCP servers and Serpapi interface.",
+            result: "GT: https://www.youtube.com/watch?v=9lU_IGeaizE",
+            problem: "On YouTube, there is a video that meets all of the following conditions:\n1) Uploaded on September 2, 2025;\n2) Duration is approximately 7 minutes;\n3) The channel has around 30.5 thousand subscribers as of 2025-09;\n4) A top comment includes the phrase \"Piga hit after hit\";\n5) The description contains the hashtag \"#NgommaBenga\".\nWhich video is this? Provide its URL.",
         },
         4: {
             title: "Example 4",
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Format time for messages
     function formatTime() {
         const now = new Date();
-        return now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
 
     // Add a message to the chat
@@ -142,16 +142,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Example button event listeners
     exampleButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const exampleId = this.getAttribute('data-example');
-            
+
             // --- 修改开始 ---
             const h3Element = document.getElementById('example title');
             const example = examples[exampleId];
 
             if (h3Element && example) {
                 // 关键：将对应示例的 description 赋给 h3 元素
-                h3Element.textContent = example.title; 
+                h3Element.textContent = example.title;
             }
             // --- 修改结束 ---
             initChat(exampleId);
@@ -161,13 +161,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close modal when close button is clicked
-    closeBtn.addEventListener('click', function() {
+    closeBtn.addEventListener('click', function () {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';// Re-enable scrolling
     });
 
     // Close modal when clicking outside the modal content
-    modal.addEventListener('click', function(event) {
+    modal.addEventListener('click', function (event) {
         if (event.target === modal) {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';// Re-enable scrolling
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close modal with Escape key
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && modal.style.display === 'block') {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';// Re-enable scrolling
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Send button event listener
-    sendBtn.addEventListener('click', function() {
+    sendBtn.addEventListener('click', function () {
         const userInput = chatInput.value.trim();
         if (userInput) {
             // Add user message
@@ -192,23 +192,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Simulate bot response after a short delay
             setTimeout(() => {
-                if (userInput.toLowerCase().includes('code') ||
-                    userInput.toLowerCase().includes('show') ||
-                    userInput.toLowerCase().includes('implementation')) {
-                    addMessage("Here's the code implementation for this example:", false);
-                    addMessage(examples[currentExample].code, false, true);
-                } else if (userInput.toLowerCase().includes('explain') ||
-                           userInput.toLowerCase().includes('what')) {
-                    addMessage(examples[currentExample].description, false);
-                } else {
-                    addMessage("I can show you the code implementation or explain more about this example. What would you like to know?", false);
-                }
+                addMessage("Read the paper for more information and examples!🫡", false);
             }, 500);
         }
     });
 
     // Send message on Enter key
-    chatInput.addEventListener('keypress', function(event) {
+    chatInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             sendBtn.click();
         }

@@ -39,15 +39,15 @@ body {
 .text-block {
     /* 1. 让 div 块本身居中 */
     /* 必须设置一个宽度（小于 100%），否则 div 会默认占据全部宽度，居中就没有意义了 */
-    width: 60%; 
-    
+    width: 60%;
+
     /* 核心：设置上下 margin 为 0，左右 margin 为 auto，实现水平居中 */
-    margin: 0 auto; 
+    margin: 0 auto;
 
     /* 2. 确保内部内容左对齐 */
     /* 覆盖掉父容器（如 body）可能设置的居中对齐，保证文本是左对齐的 */
-    text-align: left; 
-    
+    text-align: left;
+
     /* border: 1px solid blue;  */
     padding: 10px;
 }
@@ -56,6 +56,71 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+}
+
+.container-new {
+    display: flex;
+    /* 启用 Flexbox 布局 */
+    gap: 20px;
+    /* 两栏之间的间距 */
+    max-width: 900px;
+    margin: 0px auto;
+    /* 居中显示 */
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+/* 2. 左侧图片栏样式：精确设置宽度 */
+.image-column {
+    flex: 0 0 40%;
+    /* 关键：不增长 (0)，不缩小 (0)，基础宽度 30% */
+    /* width: 30%; 也可以单独设置 width */
+
+    display: flex;
+    /* 内部也使用 flex 来帮助图片居中 */
+    align-items: center;
+    flex-direction: column;
+    /* 垂直居中图片 */
+    justify-content: center;
+    /* 水平居中图片 */
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 3. 右侧文字栏样式：占据剩余空间 */
+.text-column {
+    flex: 1;
+    /* 关键：占据剩余所有空间 (70%) */
+    padding: 10px;
+    line-height: 1.6;
+}
+
+/* 4. 图片样式：确保图片适应容器 */
+.image-column img {
+    max-width: 100%;
+    /* 图片最大宽度为其父容器 (30% 栏) 的 100% */
+    height: auto;
+    /* 高度自适应 */
+    border-radius: 4px;
+}
+
+/* 5. 响应式调整 (可选但推荐) */
+@media (max-width: 600px) {
+    .container-new {
+        flex-direction: column;
+        /* 在小屏幕上改为垂直堆叠 */
+    }
+
+    .image-column {
+        flex-basis: auto;
+        /* 恢复默认，让图片栏占据整行 */
+        width: 100%;
+        height: 200px;
+        /* 给图片栏一个固定高度或 auto */
+    }
 }
 
 /* Header styles */
@@ -122,7 +187,7 @@ p {
 
 /* Examples section with grid layout */
 .examples-section {
-    padding: 2rem 0 0;
+    padding: 0 0 0;
 }
 
 .examples-section h2 {
@@ -167,14 +232,16 @@ p {
     font-weight: 600;
     color: var(--heading-color);
     margin-bottom: 0.5rem;
-    justify-content: space-between; 
-    display: flex; /* 开启 Flex 布局 */
-    align-items: center; /
+    justify-content: space-between;
+    display: flex;
+    /* 开启 Flex 布局 */
+    align-items: center;/
 }
 
 .btn-title img {
     /* 关键：将图片垂直对齐到文字的中间或底部 */
-    vertical-align: middle; /* 推荐，图片中心线与文字中心线对齐 */
+    vertical-align: middle;
+    /* 推荐，图片中心线与文字中心线对齐 */
     /* 或者 vertical-align: bottom; */
 }
 
@@ -188,6 +255,7 @@ p {
     /* 对父容器应用 text-align: center，使内部的行内元素 (img) 居中 */
     text-align: center;
 }
+
 /* 可选：为了确保图片在不同设备上不溢出，保持响应式 */
 .img-container img {
     max-width: 100%;
@@ -339,6 +407,7 @@ footer {
 }
 
 .message-content {
+    font-size: 16px;
     white-space: pre-wrap;
     font-family: inherit;
 }
@@ -399,10 +468,113 @@ footer {
 }
 
 
+/* 容器样式 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+    /* 顶部留出一些空间 */
+    /* border: 1px solid #ccc; /* 暂时移除容器边框，让子项更突出 */
+}
+
+/* 1. 针对 <pre> 标签设置代码框的视觉效果 */
+pre {
+    background-color: #f8f9fa;
+    /* 浅灰色背景 */
+    border: 1px solid #f8f9fa;
+    /* 浅灰色边框 */
+    padding: 15px;
+    /* 内边距 */
+    margin: 5px 0;
+    /* 上下外边距 */
+    border-radius: 5px;
+    /* 轻微圆角 */
+    overflow-x: auto !important;
+    /* 当代码太长时，显示水平滚动条 */
+
+    /* 确保文本能被选中和复制 */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* 2. 针对 <code> 标签设置字体 */
+code {
+    /* font-family: monospace; */
+    /* 等宽字体是代码显示的标准 */
+    font-size: 1.2em;
+    /* 字体可以稍微小一点 */
+    color: black !important;
+    /* 深灰色字体 */
+}
+
+/* 子项（列）样式 */
+.grid-item {
+    background-color: #ffffff;
+    /* 白色背景 */
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+
+    border-radius: 15px;
+    /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 初始阴影 */
+
+    /* 平滑过渡效果：针对所有可动画属性，在 0.3 秒内使用 ease 缓动函数 */
+    transition: all 0.3s ease-in-out;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.grid-item p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 鼠标悬停效果 */
+.grid-item:hover {
+    transform: scale(1.03);
+    /* 放大 3% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* 阴影变大变深 */
+    border-color: #a0d0ed;
+    /* 边框颜色变亮 */
+    cursor: pointer;
+    /* 鼠标变为手型，提示可交互 */
+}
+
+/* 响应式设计：当屏幕宽度小于 768px 时，变为两列；小于 480px 时，变为一列 */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 两列 */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        /* 一列 */
+    }
+}
+
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideIn {
@@ -410,6 +582,7 @@ footer {
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -427,24 +600,24 @@ footer {
     .examples-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         padding: 0 1rem;
     }
-    
+
     header {
         padding: 2rem 0 1.5rem;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
+
     .chat-container {
         width: 95%;
         height: 90vh;
     }
-    
+
     .message {
         max-width: 90%;
     }
