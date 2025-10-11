@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoMosaic-Bench</title>
+
+    <!-- todo add fav icon for svg version -->
+    <link rel="icon" type="image" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="images/infomosaic.png" width="90%">
+            <h1>InfoMosaic-Bench: Evaluating Multi-Source Information Seeking in Tool-Augmented Agents</h1>
+            <p class="title is-5 has-text-dark">Code and Data for the paper: <a
+                    href="https://huggingface.co/papers/2510.02271">Paper
+                    Page for InfoMosaic-Bench</a> </p>
+
+
+            <p class="authors">
+            <div class="is-size-5 publication-authors">
+                <span class="author-block has-text-grey">
+                    Yaxin Du<sup>1</sup>,</span>
+                <span class="author-block has-text-grey">
+                    Yuanshuo Zhang<sup>1</sup>,</span>
+                <span class="author-block has-text-grey">
+                    Xiyuan Yang<sup>1</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Yifan Zhou<sup>2</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Cheng Wang<sup>1</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Gongyi Zou<sup>4</sup>,
+                </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+                <span class="author-block has-text-grey">
+                    Xianghe Pang<sup>1</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Wenhao Wang<sup>3</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Menglan Chen<sup>1</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Shuo Tang<sup>1</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Zhiyu Li<sup>5</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Feiyu Xiong<sup>5</sup>,
+                </span>
+                <span class="author-block has-text-grey">
+                    Siheng Chen<sup>1,5</sup>
+                </span>
+            </div>
+            </p>
+
+            <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
+                <span class="author-block"><sup>2</sup>The Chinese University of Hong Kong</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>3</sup>Zhejiang University</span>
+                <span class="author-block"><sup>4</sup>University of Oxford</span>
+                <span class="author-block"><sup>5</sup>MemTensor (Shanghai) Technology Co., Ltd</span>
+
+            </div>
+
+            <!-- several links -->
+            <div class="column has-text-centered">
+                <div class="publication-links">
+                    <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2510.02271"
+                            class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </span>
+                            <span>Paper</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a href="https://arxiv.org/abs/2510.02271"
+                            class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="ai ai-arxiv"></i>
+                            </span>
+                            <span>arXiv</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block">
+                        <a href="https://github.com/DorothyDUUU/Info-Mosaic"
+                            class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="fab fa-github"></i>
+                            </span>
+                            <span>Code</span>
+                        </a>
+                    </span>
+
+                </div>
+                <br>
+
+                <!-- title -->
+                <img src="images/overview.png" alt="Overview for Info-Mosaic" width="75%">
+
+
+        </header>
+
+        <main>
+            <section class="examples-section">
+                <h2>Abstract</h2>
+                <div class="text-block">
+                    <p>Information seeking is a fundamental requirement for humans. However, existing LLM agents rely
+                        heavily on open-web search, which exposes two fundamental weaknesses: online content is noisy
+                        and unreliable, and many real-world tasks require <b>precise, domain-specific knowledge
+                            unavailable from the web</b>. The emergence of the Model Context Protocol (MCP) now allows
+                        agents to interface with thousands of specialized tools, seemingly resolving this limitation.
+                        Yet it remains unclear whether agents can effectively leverage such tools -- and more
+                        importantly, whether they can integrate them with general-purpose search to solve complex tasks.
+                        Therefore, we introduce InfoMosaic-Bench, the first benchmark dedicated to multi-source
+                        information seeking in tool-augmented agents. Covering six representative domains (medicine,
+                        finance, maps, video, web, and multi-domain integration), InfoMosaic-Bench requires agents to
+                        combine general-purpose search with domain-specific tools. Tasks are synthesized with
+                        InfoMosaic-Flow, a scalable pipeline that grounds task conditions in verified tool outputs,
+                        enforces cross-source dependencies, and filters out shortcut cases solvable by trivial lookup.
+                        This design guarantees both reliability and non-triviality. Experiments with 14 state-of-the-art
+                        LLM agents reveal three findings: (i) web information alone is insufficient, with GPT-5
+                        achieving only 38.2% accuracy and 67.5% pass rate; (ii) domain tools provide selective but
+                        inconsistent benefits, improving some domains while degrading others; and (iii) 22.4% of
+                        failures arise from incorrect tool usage or selection, highlighting that current LLMs still
+                        struggle with even basic tool handling.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <section class="examples-section">
+            <h2>Examples</h2>
+            <div class="examples-grid">
+                <button class="example-btn" data-example="1">
+                    <div class="btn-title"><b>Map Domain</b><img src="./images/map.png" width="18%"></div>
+                    <div class="btn-desc"><b>135</b> high-quality queries based on Chinese geographical landmarks, using GoogleMap MCP server and Amap MCP server</div>
+                </button>
+                <button class="example-btn" data-example="2">
+                    <div class="btn-title"><b>Medical/Biology Domain</b><img src="./images/bio.png" width="18%"></div>
+                    <div class="btn-desc"></div>
+                </button>
+                <button class="example-btn" data-example="3">
+                    <div class="btn-title"><b>Video Domain</b><img src="./images/y2b.png" width="18%"></div>
+                    <div class="btn-desc"></div>
+                </button>
+                <button class="example-btn" data-example="4">
+                    <div class="btn-title"><b>Web Domain</b><img src="./images/web.png" width="18%"></div>
+                    <div class="btn-desc"></div>
+                </button>
+                <button class="example-btn" data-example="5">
+                    <div class="btn-title"><b>Finance Domain</b><img src="./images/finance.png" width="18%"></div>
+                    <div class="btn-desc"></div>
+                </button>
+                <button class="example-btn" data-example="6">
+                    <div class="btn-title"><b>Multi-Domain</b></div>
+                    <div class="btn-desc"></div>
+                </button>
+            </div>
+        </section>
+
+        <section class="examples-section">
+            <h2>Methodology</h2>
+            <div class="img-container">
+                <img src="images/infomosaic_flow.png" alt="Methodology for Info-Mosaic" width="75%">
+            </div>
+            <div class="text-block">
+                <p>
+                    The synthesis pipeline is laid on an organizerworkers architecture,
+                    where a single organizer acts as the commander, coordinating multiple domain-specific workers. Stage
+                    1:
+                    Information Seeking composing interdependent constraints and grounding them with verified multi-tool
+                    outputs to form initial QA pairs; Stage 2: Iterative Refinement revising drafts, pruning shortcuts,
+                    and
+                    enforcing multi-source reasoning
+                </p>
+            </div>
+        </section>
+
+        
+
+        <footer>
+            <p>© 2025 Paper Authors. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Chat-style modal for examples -->
+    <div class="modal" id="exampleModal">
+        <div class="modal-content chat-container">
+            <div class="chat-header">
+                <h3 class="chat-title" id="example title">Example</h3>
+                <span class="close-btn">×</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be inserted here by JavaScript -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask about this example...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
