@@ -1,0 +1,451 @@
+/* Base styles */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --heading-color: #1a3a6c;
+    --accent-color: #2c5282;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --border-radius: 12px;
+    --chat-bg: #f0f4f8;
+    --user-msg-bg: #2c5282;
+    --user-msg-color: white;
+    --bot-msg-bg: #e9ecef;
+    --bot-msg-color: #212529;
+}
+
+/* p {
+    width: 80%;
+    text-align: center;
+} */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+.text-block {
+    /* 1. 让 div 块本身居中 */
+    /* 必须设置一个宽度（小于 100%），否则 div 会默认占据全部宽度，居中就没有意义了 */
+    width: 60%; 
+    
+    /* 核心：设置上下 margin 为 0，左右 margin 为 auto，实现水平居中 */
+    margin: 0 auto; 
+
+    /* 2. 确保内部内容左对齐 */
+    /* 覆盖掉父容器（如 body）可能设置的居中对齐，保证文本是左对齐的 */
+    text-align: left; 
+    
+    /* border: 1px solid blue;  */
+    padding: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.authors {
+    font-size: 1.1rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Main content styles */
+main {
+    padding: 1rem 0 3rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    color: var(--heading-color);
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+h3 {
+    color: var(--heading-color);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Examples section with grid layout */
+.examples-section {
+    padding: 2rem 0 0;
+}
+
+.examples-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.examples-section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.example-btn {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.example-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.btn-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    justify-content: space-between; 
+    display: flex; /* 开启 Flex 布局 */
+    align-items: center; /
+}
+
+.btn-title img {
+    /* 关键：将图片垂直对齐到文字的中间或底部 */
+    vertical-align: middle; /* 推荐，图片中心线与文字中心线对齐 */
+    /* 或者 vertical-align: bottom; */
+}
+
+.btn-desc {
+    font-size: 0.95rem;
+    color: #6c757d;
+    flex-grow: 1;
+}
+
+.img-container {
+    /* 对父容器应用 text-align: center，使内部的行内元素 (img) 居中 */
+    text-align: center;
+}
+/* 可选：为了确保图片在不同设备上不溢出，保持响应式 */
+.img-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+}
+
+/* Chat-style modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease;
+}
+
+.chat-container {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 0;
+    border: none;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.chat-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.close-btn {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #e9ecef;
+}
+
+.chat-messages {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    background-color: var(--chat-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    max-width: 80%;
+    padding: 1rem;
+    border-radius: 18px;
+    line-height: 1.5;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: var(--user-msg-bg);
+    color: var(--user-msg-color);
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: var(--bot-msg-bg);
+    color: var(--bot-msg-color);
+    border-bottom-left-radius: 4px;
+}
+
+.message-header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user-icon {
+    background: linear-gradient(135deg, #2c5282, #1a3a6c);
+    color: white;
+}
+
+.bot-icon {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+.message-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.message-content-wrapper {
+    flex: 1;
+}
+
+.message-content {
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-left: 0.5rem;
+}
+
+.code-block {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.chat-input {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.chat-input input:focus {
+    border-color: var(--accent-color);
+}
+
+.chat-input button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    transition: var(--transition);
+}
+
+.chat-input button:hover {
+    background-color: #1a3a6c;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .examples-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    header {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .chat-container {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+}
