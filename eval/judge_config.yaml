@@ -1,0 +1,164 @@
+name: judgment config file for AI-Researcher
+
+# Timeout and retry configuration
+timeout: 1800
+retry: 3
+  
+
+extract_answer_template: |
+  You are a helpful AI assistant tasked with extracting the final answer from a provided solution.
+
+  **Input:**
+  1. A problem statement, prefixed with "===Problem: <problem>".
+  2. A solution to the problem, prefixed with "===Solution:".
+
+  **Problem and Solution:**
+  ===Problem: {task}
+
+  ===Solution: {operated_text}
+
+  **Instructions:**
+  - Carefully analyze the solution and extract the final answer in reply: "The answer is <answer extracted> in reply".
+  - If the solution does not contain a final answer (e.g., only reasoning, code without execution, or incomplete information), respond with: "The reply doesn't contain an answer."
+  - Ensure that the extracted answer is exactly as presented in the solution. Do not infer or use external knowledge. Do not execute the code yourself.
+  - Remember, Never execute the code yourself! Never doing any computation yourself! Just extract and output the existing answer!
+
+
+testcase_answer_template: |
+  You are a helpful AI assistant tasked with extracting the final answer from a provided solution.
+
+  **Input:**
+  1. A problem statement, prefixed with "===Problem: <problem>" and the subquestions prefixed with "===Subquestions: <subquestions>".
+  2. A solution to the problem, prefixed with "===Solution:".
+
+  **Problem and Solution:**
+  ===Problem: 
+  {task}
+
+  ===Subquestions: 
+  {testcase}
+
+  ===Solution: 
+  {operated_text}
+
+  **Instructions:**
+  - Sub answers:
+    - Carefully analyze the response and extract the answer for each subquestion and must answer it in the following format:
+    - if the subquestion is not answered, answer "unknown".
+  ```json
+  {{
+    "exact_subquestion": "answer|unknown",
+    "exact_subquestion": "answer|unknown"
+  }}
+  ```
+  - Final Answer:
+    - Carefully analyze the solution and extract the final answer in reply: "<final_answer>extracted final_answer</final_answer>".
+    - If the solution does not contain a final answer (e.g., only reasoning, code without execution, or incomplete information), respond with: "<final_answer>None</final_answer>"
+  - !!!VERY IMPORTANT NOTICE!!!
+    - Ensure that the extracted answer is exactly as presented in the solution. Do not infer or use external knowledge. Do not execute the code yourself.
+    - Remember, Never execute the code yourself! Never doing any computation yourself! Just extract and output the existing answer!
+
+  ## Output format: You must follow the following format
+  ```json
+  {{
+    "exact_subquestion": "answer|unknown",
+    "exact_subquestion": "answer|unknown"
+  }}
+  ```
+  <final_answer>extracted final_answer</final_answer>
+
+
+eval_prompt_template: |
+  You are a helpful AI assistant. You will use your coding and language skills to verify the answer.
+  You are given:
+      1. A problem, which is going to start like "===Problem: <problem>".
+      2. A ground truth answer, which is going to start like "===Ground truth answer:".
+      3. A reply with the answer to the problem, which are going to start like "===Reply:".
+  Please do the following:
+  1. Extract the answer in reply: "The answer is <answer extracted> in reply".
+  2. Check whether the answer in reply matches the ground truth answer. When comparison is not obvious (for example, 3*\\sqrt(6) and 7.348), you may compare by calculation, allowing a small margin of error.
+  3. After everything is done, please give each reply a comment like the following options:
+      - "The answer is correct."
+      - "The answer is approximated but should be correct. Correct Answer: <ground truth answer> | Answer extracted: <answer extracted>."
+      - "The answer is incorrect. Correct Answer: <ground truth answer> | Answer extracted: <answer extracted>."
+      - "The reply doesn't contain an answer." 
+  Here are the problem, the ground truth answer and the reply:
+  ===Problem: {task}
+
+  ===Ground truth answer: {ground_truth}
+
+  ===Reply: {operated_text}
+
+
+eval_subquestion_prompt_template: |
+  You are a helpful AI assistant tasked with extracting the final answer from a provided solution.
+
+  **Input:**
+  1. A problem statement, prefixed with "===Problem: <problem>" and the subquestions prefixed with "===Subquestions: <subquestions>".
+  2. A solution to the problem, prefixed with "===Solution:".
+
+  **Problem and Solution:**
+  ===Problem: 
+  {task}
+
+  ===Subquestions: 
+  {testcase}
+
+  ===Solution: 
+  {operated_text}
+
+  **Instructions:**
+  - Sub answers:
+    - Carefully analyze the response and extract the answer for each subquestion and must answer it in the following format:
+    - if the subquestion is not answered, answer "unknown".
+  ```json
+  {{
+    "exact_subquestion": "answer|unknown",
+    "exact_subquestion": "answer|unknown"
+  }}
+  ```
+  - Final Answer:
+    - Carefully analyze the solution and extract the final answer in reply: "<final_answer>extracted final_answer</final_answer>".
+    - If the solution does not contain a final answer (e.g., only reasoning, code without execution, or incomplete information), respond with: "<final_answer>None</final_answer>"
+  - !!!VERY IMPORTANT NOTICE!!!
+    - Ensure that the extracted answer is exactly as presented in the solution. Do not infer or use external knowledge. Do not execute the code yourself.
+    - Remember, Never execute the code yourself! Never doing any computation yourself! Just extract and output the existing answer!
+
+  ## Output format: You must follow the following format
+  ```json
+  {{
+    "exact_subquestion": "answer|unknown",
+    "exact_subquestion": "answer|unknown"
+  }}
+  ```
+  <final_answer>extracted final_answer</final_answer>
+
+
+eval_testcase_prompt_template: |
+  You are a helpful AI assistant. You will use your language skills to verify the testcases.
+  You are given:
+      1. A set of testcases to verify if the reply answer them correctly, which are going to start like "===Testcases to evaluate".
+      2. A reply with the subanswer to the subproblem, which are going to start like "===Reply:".
+  Please do the following:
+  1. Check whether the subanswer in reply matches the requirement of testcases. 
+  2. After everything is done, please give each reply a comment like the following format to justify if the subanswer is correct or incorrect:
+  ```json
+  {{
+    "testcase": "CORRECT|INCORRECT",
+    "testcase": "CORRECT|INCORRECT"
+  }}
+  ```
+  Here are the testcases to evaluate and the reply:
+  ===Testcases to evaluate: 
+  {task}
+
+  ===Reply: 
+  {subanswer}
+
+  ## Output format: You must follow the following format
+  ```json
+  {{
+    "testcase": "CORRECT|INCORRECT",
+    "testcase": "CORRECT|INCORRECT"
+  }}
+  ```

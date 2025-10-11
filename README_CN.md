@@ -106,23 +106,31 @@ python data/prepare_data.py
 运行推理脚本以在基准上评估模型：
 
 ```bash
-python infer_answer.py --model_name <model-name> --parallel_size <num-threads>
+export OPENAI_API_BASE_URL="https://api.openai.com/v1"
+export OPENAI_API_KEY="sk-..." # 替换为您的OpenAI API密钥
+export SERPER_API_KEY="..." # 替换为您的 [Serper API密钥](https://serper.dev/)
+sh inference/run_infer.sh
 ```
 
 **关键参数：**
-- `--model_name`：要评估的模型名称
+- `--model_name`：使用的agent类型：agent_wo_tool（不使用工具）或agent_w_web_tool（仅使用web工具）或 agent_w_multi_tool（使用工具）
 - `--parallel_size`：用于处理的并行线程数
-- `--api_base`：API的基础URL（如果使用自定义端点）
-- `--api_key`：访问模型的API密钥
-- `--temperature`：生成的温度设置
+- `--llm_name`：使用的LLM模型名称，默认值为"gpt-5-mini"
+- `--domain`：要评估的领域，默认值为"all"，可选值为all', 'map', 'bio', 'financial', 'web', 'video', 'multidomain'
 
 ### 📊 评估
 
 使用通过率评估脚本评估模型的性能：
 
 ```bash
-python eval/pass_rate_eval.py
+export OPENAI_API_BASE_URL="https://api.openai.com/v1"
+export OPENAI_API_KEY="sk-..." # 替换为您的OpenAI API密钥
+sh eval/run_eval.sh
 ```
+
+**关键参数：**
+- `--model_name`：使用的agent类型：agent_wo_tool（不使用工具）或agent_w_web_tool（仅使用web工具）或 agent_w_multi_tool（使用工具）
+- `--domain`：要评估的领域，默认值为"all"，可选值为all', 'map', 'bio', 'financial', 'web', 'video', 'multidomain'
 
 该脚本将：
 1. 加载模型生成的答案

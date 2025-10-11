@@ -114,15 +114,14 @@ Run the inference script to evaluate a model on the benchmark:
 export OPENAI_API_BASE_URL="https://api.openai.com/v1"
 export OPENAI_API_KEY="sk-..."
 export SERPER_API_KEY="your_serper_api_key"
-python infer_answer.py --model_name <model-name> --parallel_size <num-threads>
+sh inference/run_infer.sh
 ```
 
 **Key arguments:**
-- `--model_name`: Name of the model to evaluate
+- `--model_name`: Type of agent to use: agent_wo_tool (no tools), agent_w_web_tool (web tool only), or agent_w_multi_tool (multiple tools)
 - `--parallel_size`: Number of parallel threads for processing
-- `--api_base`: Base URL for the API (if using custom endpoint)
-- `--api_key`: API key for accessing the model
-- `--temperature`: Temperature setting for generation
+- `--llm_name`: Name of the LLM model to use, default is "gpt-5-mini"
+- `--domain`: Domain to evaluate, default is "all", optional values are 'all', 'map', 'bio', 'financial', 'web', 'video', 'multidomain'
 
 
 ### 📊 Evaluation
@@ -130,8 +129,14 @@ python infer_answer.py --model_name <model-name> --parallel_size <num-threads>
 Evaluate the model's performance using the pass rate evaluation script:
 
 ```bash
-python eval/pass_rate_eval.py
+export OPENAI_API_BASE_URL="https://api.openai.com/v1"
+export OPENAI_API_KEY="sk-..."
+sh eval/run_eval.sh
 ```
+
+**Key arguments:**
+- `--model_name`: Type of agent to use: agent_wo_tool (no tools), agent_w_web_tool (web tool only), or agent_w_multi_tool (multiple tools)
+- `--domain`: Domain to evaluate, default is "all", optional values are 'all', 'map', 'bio', 'financial', 'web', 'video', 'multidomain'
 
 This script will:
 1. Load the model's generated answers

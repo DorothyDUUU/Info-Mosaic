@@ -10,10 +10,12 @@ tool_backends/MCP/logs/
 # API keys configuration
 # This file contains sensitive information and should not be committed
 tool_backends/MCP/config/api_keys.json
+notes.md
 
 # Data
 *.jsonl
 !data/info_mosaic_gt_answer.jsonl
+output/
 
 node_modules
 dist

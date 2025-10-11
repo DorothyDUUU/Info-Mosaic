@@ -8,11 +8,17 @@ import requests
 print("Connected to Hugging Face!" if requests.get("https://huggingface.co", timeout=5).status_code == 200 else "Could not connect to Hugging Face.")
 
 # download huggingface dataset
-query_data = load_dataset('Dorothydu/InfoMosaic_Bench')['test']
+try:
+    query_data = load_dataset('Dorothydu/InfoMosaic_Bench')['test']
+    assert len(query_data) == 1000
+except:
+    # wget the parquet file
+    os.system("wget https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench/resolve/main/data/test-00000-of-00001.parquet")
+    query_data = load_dataset("parquet", data_files="test-00000-of-00001.parquet")["train"]
+
 
 # load jsonl file
 gt_data = []
-# Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 gt_file_path = os.path.join(script_dir, 'info_mosaic_gt_answer.jsonl')
 with open(gt_file_path, 'r', encoding='utf-8') as f:
@@ -21,8 +27,10 @@ with open(gt_file_path, 'r', encoding='utf-8') as f:
         gt_data.append(item)
 
 if len(query_data) != len(gt_data):
+    print(f"len(query_data): {len(query_data)}")
+    print(f"len(gt_data): {len(gt_data)}")
     raise ValueError("The length of query_data and gt_data should be the same.")
-        
+
 # ensemble the query and gt data
 ensemble_data = []
 for query_item, gt_item in zip(query_data, gt_data):

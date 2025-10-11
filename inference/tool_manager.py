@@ -36,7 +36,6 @@ class BaseToolManager:
         return resp.json()
     
     def del_session(self):
-        # 确保 session_id 作为查询参数传递
         print(self.session_id)
         url = f"{self.server_url}/del_session"
         params = {"session_id": self.session_id}
@@ -160,36 +159,20 @@ class StreamToolManager(BaseToolManager):
 if __name__ == '__main__':
 
 
-    tool_manager = BaseToolManager(url="http://127.0.0.1:30007", session_id="hahahha")
+    tool_manager = BaseToolManager(url="http://127.0.0.1:30010", session_id="hahahha")
     
-    test_code = f"""
+    test_code = f"""# test code
 def sum(a, b):
     return a+b
-
 output = sum(1,2)
 print(output)
-# # print(web_search("what is goole?"))
+
+# test tool
+result = web_search(query="what is google?")
+print(result)
 # # print(search_r1(queries=["What is Python?", "Tell me about neural networks."]))
 # """
 
     res = tool_manager.execute_tool(test_code)
     print(res)
     print(tool_manager.del_session())
-
-#     tool_manager = StreamToolManager(url="http://127.0.0.1:30007", session_id="bbbbb", timeout=1800)
-#     test_code = """
-# # web_search("hahahahha")
-# intern_s1("分子动力学在药物筛选中的典型流程是怎样的呢？")
-# # print(batch_search_and_filter("an actor who act in man of steel"))
-# # print(1+1)
-# # print(browse_master("hello"))
-# """
-
-#     async def main():
-#         async for item in tool_manager.execute_code_async_stream(test_code):
-#             print(item['content'], end="", flush=True)
-#             # print(item)
-#         # result = await tool_manager.execute_code_async_resonly(test_code)
-#         # print(result)
-#         await tool_manager.close_session()
-#     asyncio.run(main())

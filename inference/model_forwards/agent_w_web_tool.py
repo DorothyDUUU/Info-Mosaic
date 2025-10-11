@@ -6,16 +6,17 @@ import json
 import requests
 import time
 import traceback
-from tool_manager import StreamToolManager, execute_code
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from tool_manager import StreamToolManager
 from utils import register_forward, BenchArgs
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
 
 
-# OpenAI API配置
-base_url = os.getenv("OPENAI_API_BASE_URL")
-api_key = os.getenv("OPENAI_API_KEY")
-
-
+# OpenAI API Configuration
 serper_api_key = os.getenv("SERPER_API_KEY")
+base_url = os.getenv("BASE_URL")
+api_key = os.getenv("API_KEY")
 
 def serper_google_search(query, serper_api_key, top_k, region, lang, depth=0):
     url = "https://google.serper.dev/search"
@@ -53,21 +54,51 @@ def serper_google_search(query, serper_api_key, top_k, region, lang, depth=0):
         return []
     
 def web_search(key_word:str):
+    # Ensure to re-acquire serper_api_key from environment variables
+    current_api_key = os.getenv("SERPER_API_KEY")
+    if not current_api_key:
+        print("Warning: SERPER_API_KEY environment variable is not set, using fallback value")
+        # Here you can set a default value or use a passed fallback value
+    return serper_google_search(key_word, current_api_key or serper_api_key, 10, "us", "en")
 
-    return serper_google_search(key_word, serper_api_key, 10, "us", "en")
+def _llm_call_with_timeout(client, timeout_sec, **kwargs):
+    # Define an inner function to invoke the chat completion creation
+    def _invoke():
+        return client.chat.completions.create(**kwargs)
 
-
-def execute_python_code(code: str) -> str:
-    """在沙盒中执行Python代码"""
-    tool_manager = StreamToolManager(url="sandbox_url", session_id=str(uuid4()), timeout=1800)
-    outputs, tool_stats = execute_code(code, tool_manager)
-    return outputs
-
-
-# tool_functions = {
-#     "Python_code_interpreter":execute_python_code
-# }
-
+    # Use a thread pool executor with a single worker
+    with ThreadPoolExecutor(max_workers=1) as ex:
+        # Submit the invocation task to the executor
+        fut = ex.submit(_invoke)
+        try:
+            # Wait for the task to complete within the specified timeout
+            return fut.result(timeout=timeout_sec)
+        except FuturesTimeout:
+            # Simulate a normal message object with a timeout message
+            return type("DummyResp", (), {
+                "choices": [
+                    type("DummyChoice", (), {
+                        "message": {
+                            "role": "assistant",
+                            "content": f"⚠️  Model call timed out (>{timeout_sec}s), please try again later."
+                        },
+                        "finish_reason": "stop"
+                    })
+                ]
+            })()
+        except Exception as e:
+            # Simulate a normal message object with a failure message
+            return type("DummyResp", (), {
+                "choices": [
+                    type("DummyChoice", (), {
+                        "message": {
+                            "role": "assistant",
+                            "content": f"⚠️  Model call failed: {e}"
+                        },
+                        "finish_reason": "stop"
+                    })
+                ]
+            })()
 
 def call_model(
     system_prompt: str,
@@ -76,26 +107,34 @@ def call_model(
     tool_functions: Dict[str, Callable] = {},
     model_name: str = "gpt-5",
     max_tool_calls: int = 20,
-    user_template: str = "You are a helpful assistant. Please answer the question based on the following information: {information}\n You can use the web_search tool to get more information."
+    max_tokens: int = 4096,
+    base_url: str = base_url,
+    api_key: str = api_key,
+    user_template: str = "Please answer the question:\n INFORMARION\n You can use the web_search tool to get more information.\n You should provide all information for answering every subqueries in the question and illustrate your reasoning process for these subquestions in the end, rather than a single answer.",
+    finish_template: str = "You have reached the maximum number of tool calls. Please provide your final answer according to the above tool usage results and answer the question anyway.\n Remember you should provide all information for answering every subqueries in the question rather than a single answer.",
+    timeout: int = 300
 ) -> str:
-    """调用GPT模型并处理工具调用
+    """Call GPT model and handle tool calls
     
     Args:
-        system_prompt: 系统提示词
-        user_prompt: 用户提示词
-        tools: 可用的工具列表
-        tool_functions: 工具名称到实现函数的映射
-        model_name: 模型名称
-        max_tool_calls: 最大工具调用次数
-        user_template: 用户提示词模板
-        
+        system_prompt: System prompt
+        user_prompt: User prompt
+        tools: List of available tools
+        tool_functions: Mapping from tool names to implementation functions
+        model_name: Model name
+        max_tool_calls: Maximum number of tool calls
+        max_tokens: Maximum number of tokens
+        base_url: API base URL
+        api_key: API key    
+
     Returns:
-        str: 模型的最终回答
+        str: Final answer from the model
     """
+
     client = OpenAI(api_key=api_key, base_url=base_url)
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_template.format(information=user_prompt)}
+        {"role": "user", "content": user_template.replace("INFORMARION", user_prompt)}
     ]
     
     num_tool_calls = 0
@@ -103,13 +142,15 @@ def call_model(
         if num_tool_calls >= max_tool_calls:
             messages.append({
                 "role": "system",
-                "content": "You have reached the maximum number of tool calls. Please provide your final answer without using tools."
-            })
-            completion = client.chat.completions.create(
-                model=model_name,
-                messages=messages,
-                tools=tools,
-            )
+                "content": finish_template })
+            print(f"messages: {messages}")
+            completion = _llm_call_with_timeout(
+                    client,
+                    timeout_sec=timeout,   # 设定超时秒数
+                    model=model_name,
+                    messages=messages,
+                    tools=tools,
+                )
             messages.append(completion.choices[0].message)
             break
         
@@ -146,18 +187,26 @@ def call_model(
 
         num_tool_calls += 1
 
-        
-
     try:
         content = messages[-1].content.strip()
     except Exception as e:
         print(f"error: {e}")
-    return content, num_tool_calls
+    
+    planner_metadata = []
+    for msg in messages:
+        if isinstance(msg, dict):
+            planner_metadata.append(msg)
+        elif hasattr(msg, 'model_dump'):
+            planner_metadata.append(msg.model_dump())
+        else:
+            planner_metadata.append(vars(msg))
+
+    return content, num_tool_calls, planner_metadata
 
 @register_forward([
-    'gpt5_multi_tool'
+    'agent_w_web_tool'
 ])
-def forward(args:BenchArgs, item:Dict[str, str]):
+def forward(args, item:Dict[str, str]):
     query = item['query']
     tools = [
             {
@@ -180,21 +229,27 @@ def forward(args:BenchArgs, item:Dict[str, str]):
             },
         ]
     tool_functions = {"web_search": web_search}
-    model_name = 'gpt-5-2025-08-07'
-    max_tool_calls = 20
-    user_template = args.user_template
+    model_name = args.llm_name
+    max_tool_calls = args.max_tool_calls    
 
-    response, num_tool_calls = call_model(
+    response, num_tool_calls, messages = call_model(
         system_prompt=args.system_prompt,
         user_prompt=query,
         tools=tools,
         tool_functions=tool_functions,
         model_name=model_name,
         max_tool_calls=max_tool_calls,
-        user_template=user_template
+        max_tokens=args.max_tokens,
+        base_url=args.api_base,
+        api_key=args.api_key,
+        user_template=args.user_template,
+        finish_template=args.finish_template,
+        timeout=300,
     )
     item['response'] = response
     item['num_tool_calls'] = num_tool_calls
+    item['messages'] = messages
+
     return item
 
 if __name__ == '__main__':
@@ -222,7 +277,7 @@ if __name__ == '__main__':
             },
         }
     ]
-    tool_functions = {"web_search": web_search}
+    tool_functions = {"web_search":web_search}
     result, num_tool_calls = call_model(
         system_prompt=system_prompt,
         user_prompt=user_prompt,
