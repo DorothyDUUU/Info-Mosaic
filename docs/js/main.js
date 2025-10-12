@@ -28,22 +28,22 @@ document.addEventListener('DOMContentLoaded', function () {
             problem: "On YouTube, there is a video that meets all of the following conditions:\n1) Uploaded on September 2, 2025;\n2) Duration is approximately 7 minutes;\n3) The channel has around 30.5 thousand subscribers as of 2025-09;\n4) A top comment includes the phrase \"Piga hit after hit\";\n5) The description contains the hashtag \"#NgommaBenga\".\nWhich video is this? Provide its URL.",
         },
         4: {
-            title: "Example 4",
-            description: "This is the fourth example of your paper. Detail the implementation specifics and any unique aspects. This example demonstrates error handling techniques.",
-            result: `yes`,
-            problem: `1+1>2?`
+            title: "Web Domain Examples",
+            description: "100 high-quality queries based on textual sources spanning a broad range of internet domains, using web-search and web-parse functions.",
+            result: `GT: Shiwa Ng'andu`,
+            problem: `Link these hints: A woman once took over a large looped construction when her spouse fell ill, and during a war she ran an auxiliary facility tied to a principal military hospital in the capital. Her nephew, later accorded national funeral honors unusual for someone of his background, built an English-style home near a lake whose local name links royalty with a reptile. What is the name of that residence?`
         },
         5: {
-            title: "Example 5",
-            description: "This is the fifth example of your paper. Show results or performance metrics related to this example. This example shows a real-world application scenario.",
-            result: `yes`,
-            problem: `1+1>2?`
+            title: "Finance Domain Examples",
+            description: "100 high-quality queries based on mainstream US stock companies, using FMP MCP server.",
+            result: `GT: RIVN`,
+            problem: `Which company reported a second-quarter 2025 revenue between $1 billion and $2 billion, had a negative net income for that quarter, and, as of September 19, 2025, experienced a six-month stock price increase of over 30% and a one-month increase of over 15%?`
         },
         6: {
-            title: "Example 6",
-            description: "This is the sixth example of your paper. Conclude with any final demonstrations or edge cases. This example handles edge cases and boundary conditions.",
-            result: `yes`,
-            problem: `1+1>2?`
+            title: "Multi-Domain Examples",
+            description: "Simple Description for multi-domain examples.",
+            result: `To be done.`,
+            problem: `To be done.`
         }
     };
 
