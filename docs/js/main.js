@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         6: {
             title: "Multi-Domain Examples",
-            description: "Simple Description for multi-domain examples.",
-            result: `To be done.`,
-            problem: `To be done.`
+            description: "103 high-quality queries requires cross domain tool using, using 7 MCP server with 77 MCP tools from various domains.",
+            result: `GT: EDIT`,
+            problem: `Identify the stock symbol of a U.S.-listed company fulfilling all criteria: \n(1) Headquarters in a U.S. city renowned for its high density of universities; \n(2) Early-year quarterly report indicates minimal revenue and a per-share loss slightly less than one dollar; \n(3) Share pricemore than doubled over a mid-2025 season, with trailing six-month total return around 80100% by early August; \n(4) Develops therapeutics via a modality that directly edits DNA sequences for monogenic disorders.`
         }
     };
 
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Simulate bot response after a short delay
             setTimeout(() => {
-                addMessage("Read the paper for more information and examples!🫡", false);
+                addMessage("Read the paper for more information and examples!🫡\nURL: https://huggingface.co/papers/2510.02271", false);
             }, 500);
         }
     });
