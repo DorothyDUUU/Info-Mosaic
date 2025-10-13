@@ -9,7 +9,8 @@
 
 
 <div align="center">
-  <a href="https://dorothyduuu.github.io/Info-Mosaic/" target="_blank">🌐</a>
+<a href="https://dorothyduuu.github.io/Info-Mosaic/" target="_blank">
+  <img src="https://img.shields.io/badge/Webpage-Info%20Mosaic-green.svg" alt="Webpage"/></a>  
   <a href="https://arxiv.org/pdf/2510.02271" target="_blank"><img src="https://img.shields.io/badge/arXiv-2510.02271-b31b1b.svg" alt="arXiv"/></a>
   <a href="https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench" target="_blank"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-blue.svg" alt="Dataset on Hugging Face"/></a>
   <a href="README_CN.md" target="_blank"><img src="https://img.shields.io/badge/中文版本-README_CN-red.svg" alt="Chinese README"/></a>
