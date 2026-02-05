@@ -24,7 +24,7 @@
 
 ## 📚 Project Overview
 
-InfoMosaic is a comprehensive framework designed for advanced information retrieval, multi-step reasoning, and performance evaluation of large language models (LLMs). This project is based on the research paper ["InfoMosaic: A Multimodal, Multi-Source Benchmark for Information Integration and Reasoning"](https://arxiv.org/pdf/2510.02271) and leverages the [InfoMosaic_Bench dataset](https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench) for evaluation.
+[ICLR 2026] InfoMosaic is a comprehensive framework designed for advanced information retrieval, multi-step reasoning, and performance evaluation of large language models (LLMs). This project is based on the research paper ["InfoMosaic: A Multimodal, Multi-Source Benchmark for Information Integration and Reasoning"](https://arxiv.org/pdf/2510.02271) and leverages the [InfoMosaic_Bench dataset](https://huggingface.co/datasets/Dorothydu/InfoMosaic_Bench) for evaluation.
 
 The framework enables:
 - Multi-source information retrieval and integration
